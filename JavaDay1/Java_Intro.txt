@@ -1,0 +1,39 @@
+
+Electronic Devices:
+
+To communicate with any electronic device we need Programming Language.
+HLL - High Level Language 
+Ex: C , C++ , JAVA , C# , Python.....
+
+Using HLL we can create/develop software or applications.
+
+Types of Softwares/Applications:
+
+1.Desktop / Standalone apps
+Application which run on O.S independently without any server or internet
+Ex: Notepad , Eclipse , Paint , MS Office , O.S 
+
+JSE - Java Standard Edition (Core Java)
+
+2. Web Applications
+Any website which is running on web server and accessible using browser via internet is known as
+Web application.
+Ex: Google , Youtube , Facebook , Amazon , Any Website...
+JEE - Java Enterprise Edition (Advance Java)
+
+3. Mobile applications
+Any mobile apps 
+Ex: Wats App , Instagram , Games ....
+
+JME - Java Mobile/Micro  Edition 
+
+
+
+
+
+
+
+
+
+
+

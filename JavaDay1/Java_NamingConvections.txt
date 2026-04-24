@@ -1,0 +1,104 @@
+
+
+Java Naming Convections:
+------------------------
+package:  Its just like folder in java.
+lowercase
+Ex:
+java.lang
+java.util
+java.time
+java.sql 
+
+mypackage
+demo.pack1
+com.hexaware.demo;
+
+syntax:  domain.company.project.module.submodule;
+
+com.hexaware.metrorail.user.ticket;
+
+Class/Interface:
+-----------------
+InitCap format
+
+Ex:
+Student  , Employee ,  IncomeTax  , StudentDepartment
+
+Object , String , System , Date 
+
+Constructor:
+------------
+Initcap Format  or Same as Class name
+Ex:
+Student()  , Employee()
+Object() , String()
+
+methods/variables:
+------------------
+camel-case
+
+Ex: int account = 100; , accountNumber ,  studentCityName
+
+	account = 200;// valid
+
+   getAccountDetails() , get() , set()
+
+final variables
+----------------
+
+	BLOCK LETTERS
+
+	final  double  PI = 3.141;
+
+		PI = 8.999; // INVALID
+
+Ex:  IFSC  , PINCODE 
+
+
+int  account_123;
+int  123account;
+double  salary$;
+
+final int   ACCOUNT_NUMBER;
+
+
+
+
+Programming Fundamentals:
+--------------------------
+1. keywords
+Reserved words in any programming lang ,  keywords are written in lowercase.
+Every keyword will have reserved amount of memory allocated to it.
+
+Ex: int , short , boolean , if , else , for , try , catch , private , class , void
+
+50+ keywords in java
+
+
+Primitive Data types:
+---------------------
+Reserved data types who's memory amount is fixed.
+
+byte,short,char, int ,long ,float , double ,boolean
+
+
+Identifiers:
+Any predefined or user-defined name is known as Identifier.
+
+Ex: class name , var name , package , method method , constructor etc..
+
+
+Literals:
+Any constant value is known as Literal
+
+int  x = 10;  // 10 integer literal 
+
+String  name = "javeed";  // "javeed" String literal
+
+boolean  b1 = true; // b1 is boolean literal
+
+String  city = null;
+
+
+
