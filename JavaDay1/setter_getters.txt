@@ -1,0 +1,23 @@
+super:  it refers to immediate parent class  object
+super(): it refers to immediate parent class default  constructor
+super(x,y): it refers to immediate parent class  parameter constructor
+
+this:  it refers to current class object
+this():  it refers to current class default constructor
+this(x,y): it refers to current class parameterized constructor
+
+
+
+getter methods:
+
+Getter methods are suppliers means they only return values does not takes any inputs
+getters are used to read values from instance variables
+ T  getPropertyName();
+
+
+setter methods:
+
+Setter methods are consumers means they only accept values doest not return any anything.
+we use setter methods to initialize   individual instance variables 
+
+void    setPropertyName(T t);

@@ -1,0 +1,59 @@
+
+
+Variable:
+It is reference to the memory where value is stored.
+It is name given to the memory block where value is stored.
+
+There are 3 types of variables in Java:
+---------------------------------------
+1. Local Variable
+2. Instance Variable
+3. Static Variable
+4. final variable
+
+
+Local Variable:
+---------------
+Variable declare inside method/block/constructor/parameters are known as local variables.
+Local variable will be stored in method area.
+JVM cannot initialized values to the local variables.
+Scope/Visibility of any local variable is within that block where its declare.
+
+Ex:
+int add(int x, int y){  // 4 local variables
+ 	final int p,q;
+	p =x;  q = y;
+	return p+q;
+}
+
+Note: Local variables we cannot use any access specifier/modifier , only final keyword is allowed.
+
+
+Instance/Object level Variables:
+--------------------------------
+Variable declare inside the class without static keyword known as instance variable.
+In java whenever object is created for any class , a seperate copy of instance variable created for every object. 
+JVM is responsible to initialize default values to the instance variable.
+Instance variables should be declare as private to achieve "Data Hiding". 
+So we can initialize instance variables 
+ i. using parameter constructor ii. using setter method
+And we can read data from instance variables using
+ i. getter methods ii. toString()
+
+Whenever object is removed , instance variables will be removed/deleted
+
+Static Variables/Class Level Variables:
+------------------------------------------
+Variable declare inside the class with static keyword known as static variable.
+In java  a single copy of static variable will be shared among multiple object
+JVM is responsible to initialize default values to the static variable.
+Static variables can be access using object reference or class name.
+Whenever ".class" file is loaded JVMs Memory static variable memory allocated
+Whenever class is removed/unloaded static variables will be deleted.
+
+
+
+package for assignment 
+com.hexaware.studentinfo.entity
+
+

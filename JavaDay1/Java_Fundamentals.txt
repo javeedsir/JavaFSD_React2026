@@ -1,0 +1,64 @@
+
+
+
+java.lang;
+
+public class Object{
+
+
+	public Object(){
+
+		logic
+		// create object
+			// generating hashcode
+			// creating copy of instance variables	
+			// initializing default values to instance variables 
+				// and many more things
+	}
+	
+	getClass();
+	public String toString(){
+
+			return   pkg.getClass()@hashcode();
+		} // hashcode along with package and class name in hexadecimal format
+	hashcode(); // show hashcode in  integer format
+
+	boolean   equals(); // compare references/hashcode of 2  objects
+	
+	finalize();
+	
+       clone();
+
+	wait();
+	notify();
+	notifyAll();
+
+
+	
+
+}
+
+
+
+
+Access Modifiers:
+-------------------
+
+private  --> with in a file / program / class
+default   --> with in a current package
+protected ---> it can act as default as well as public (due to inheritance)
+public  --->  universal  within program / within package / outside package any where
+
+
+
+methods:
+instance method/concrete method  ---> using object reference
+
+static method  ---> using object reference or using class name
+ 
+non-static method into static method // not possible
+
+static method  into non-static method // possible
+
+static to static // possible
+non-static to non-static // possible
