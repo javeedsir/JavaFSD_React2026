@@ -1,0 +1,48 @@
+
+
+Access modifiers:
+-----------------
+1. private  : anything declare as private visible/can be use with in a program
+2. default  :  default  members can be used with in a package inside any class.
+3. protected : by default act as default , and also act as public if one class from package one , extended by another class in package two can access protected members from one 			                package to another 
+4. public  : anything declare as public can be used globally anywhere inside the project
+
+
+private < default < protected < public
+
+
+------------------------------
+
+final:  it is used to make any member as final to its scope.
+	it can be used for variable(cant be reinitialize),
+			methods(can't be overriden),
+			classes(can't be extended)
+		
+
+final int X = 99;
+
+	X = 99; // invalid
+
+
+
+static : static members can be accessible using object refs or  class name
+
+---------------------------------------------------------------
+
+
+java.util.Scanner class
+
+
+  next(); // read one word from K.B
+  nextLine(); // reads one line from K.B
+  nextInt();  // read one string value convert into integer value
+  nextDouble(); // read one string value convert into double value
+
+   nextXXX(); 	
+
+
+
+
+
+
+
