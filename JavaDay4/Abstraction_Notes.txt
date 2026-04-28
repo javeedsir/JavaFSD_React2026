@@ -1,0 +1,44 @@
+
+
+Abstraction:
+
+Highlighting set of services to the user and hiding implementation code.
+
+Abstraction can be achieved using interfaces and abstract class/concrete class
+
+
+Interface:
+===========
+User View: 
+Interface act as a medium to access set of service provided by the service provider  to the end user 
+
+
+Developer View:
+ Interface is nothing but  requirement or specification which needs to implement by the developers  (set of service given in interface will be implemented by the developer)
+
+
+InterfaceType  i = new ImplementationClass();
+
+
+Tips:
+
+1. Parent class ref variable holds child class object
+
+ BankImp1  b =   new BankImp2();  // runtime polymorphism
+
+2. Interface ref variable  can hold its implementation class object
+
+  IBank  b = new BankImp2();  // abstraction
+
+
+
+
+Iterator  it =  list.iterator(); // abstraction
+
+	Connection conn =	DriverManager.getConnection(); // abstraction
+
+
+
+
+
+

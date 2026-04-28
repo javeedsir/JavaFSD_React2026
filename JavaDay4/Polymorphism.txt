@@ -1,0 +1,60 @@
+
+Polymorphism :
+Any thing which posses multile behaviors or act different at different places known as polymorphism.
+
+Ex: Person --> Customer , Student , Son , Friend 
+
+
+1. Compile Time / Static Polymorphism
+ Overloading is the example of Compiletime polymorphism
+Ex: Method Overloading , Constructor Overloading , Operator Overloading
+
+Ex: Operator Overloading
+"hello"+"world"  ---> helloworld
+ 2+3  ---> 5
+
+
+2. Runtime / Dynamic Polymorphism
+   Method  Overriding is the example of Runtime Polymorphism
+ Note: Runtime polymorphism takes place only when inheritance exists between two classes.
+Ex:  i. Method overriding ii. Parent class reference variable holding child class object
+
+Runtime Polymorphism
+Person  p =  new Person();
+ 	  =  new  Dancer();
+	 =  new Programmer();
+	 =  new Driver();
+
+
+
+public > protect > default > private
+
+class Person{
+
+
+protected Person  get(int x,String y){
+
+	// logic
+
+}
+
+
+}
+
+
+class Programmer extends Person{
+
+
+public Programmer get(int x,String y){
+
+	// different logic
+
+}
+
+	
+
+}
+
+
+
+
