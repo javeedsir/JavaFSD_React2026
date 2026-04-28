@@ -1,0 +1,50 @@
+
+java.io;
+
+class PrintStream {
+
+	print();
+	println();
+
+}
+
+
+
+class System {
+
+
+	public static  InputStream in = new InputStream();
+	public static PrintStream out = new PrintStream();
+	public static  PrintStream err;
+
+	gc();
+
+
+}
+
+
+InputStream is = System.in;
+
+System.out.print();
+
+
+
+
+class Scanner{
+
+	next(); // read one word at a time
+	nextLine(); // read one line at a time
+	nextXX();  nextDouble() , nextLong() …..
+
+--> "123" ---->	nextInt(); ---> 123
+
+
+}
+
+
+
+
+
+
+
+
