@@ -1,0 +1,112 @@
+
+
+Checked Exception:
+------------------
+-> Checked Exception or Compiletime is checked or deducted by Java Compiler.
+-> Compiletime exception will occur only at runtime , it just get predicted/reported at compiletime.
+
+Note: All Exceptions occurs only at runtime.
+
+Ex:  IOException , FileNotFoundException , SQLException,InterruptedException ....
+
+
+syn:
+1.
+try{}
+catch(){}
+
+2.
+try{}
+catch(){}
+catch(){}
+catch(){}
+
+3.
+try{}
+catch(){}
+catch(){}
+finally{}
+
+
+4. Valid
+try{}
+finally{
+
+	try{
+	}
+	catch(){
+	}
+
+}
+
+
+5.
+try{
+
+
+try-catch-finally
+
+}
+catch(){
+
+try-catch-finally
+
+}
+
+finally{
+
+try-catch-finally
+
+}
+
+
+throw:
+
+throw  new ArithmeticException();
+
+User Defined / Custom Exceptions
+---------------------------------
+// partially checked exp                 // unchecked exp
+class  MyException  extends Exception  (or) RuntimeException{
+
+
+}
+
+Step1:
+Create User defined exp class extending Exception class for checked type
+or
+extending RuntimeException class for unchecked type
+
+Step2: Raise or throw exception manually using throw keyword
+
+throw new MyException();
+
+Step3: handle exception
+	using  try catch finally
+
+
+Examples:
+LowBalanceException
+EmployeeNotFoundException
+TicketBookingNotFoundException
+ProductNotFoundException
+InvalidPinException
+InvalidTokenException
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

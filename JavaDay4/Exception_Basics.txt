@@ -1,0 +1,71 @@
+
+Exception: Any unexpected condition , due to which the program get terminated abnormally known as exception.
+
+Exception Handling: Its a mechanism to handle exception so that program will terminate normally. 
+
+
+throws  --> it throws exception from callee to the caller (it never handle exception)
+
+try-catch --> using try-catch we can handle exceptions in java
+
+finally
+
+
+throw
+
+
+Notes:
+
+try block executes always
+
+catch block executes only when exception occurs.
+
+
+
+
+
+
+try{
+
+}
+catch(){
+
+		try catch finally
+
+}
+catch(){
+}
+
+finally{
+
+// closing file
+// closing database connection
+// cleaning memoryy
+// gc();
+// logout
+
+}
+
+
+System.exit();  // it will kill/ terminate JVM
+
+
+
+try{
+
+
+
+}
+
+finally{
+
+
+ 	try{}
+	 catch(){}
+
+}
+
+
+
+
+ 
