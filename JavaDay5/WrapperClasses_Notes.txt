@@ -1,0 +1,23 @@
+
+Wrapper:
+-> it is used to create object of arrays for all primitive types
+-> for representing data into Object format
+-> it is used in collections
+-> it is user for implicit type casting of object types
+-> it is used to convert any string value into specific type
+
+  "5000"  ---> Integer.parseInt("5000");   --> 5000
+
+ parseXX(String value);
+
+Ex: Integer.parseInt() , Double.parseDouble() , Long.parseLong();
+
+   int x = 10; // primitive data type
+
+   Integer i = Integer.valueOf(x); // to convert primitive into wrapper type
+
+ Note: to convert any wrapper data type into String type we can use toString();
+	
+	i.toString();  --> "10"
+		
+   
