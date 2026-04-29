@@ -10,7 +10,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 @DisplayName("Testing")
 class CalculatorTest {
@@ -50,8 +53,9 @@ class CalculatorTest {
 	}
 	
 
-	@Test
+	
 	@DisplayName("AddTest")
+	@RepeatedTest(2)
 	void testAdd() {
 
 		int actual = c.add(4, 5);
@@ -94,5 +98,26 @@ class CalculatorTest {
 		System.out.println("testDiv() tested");
 
 	}
+	
+	
+	
+
+@ParameterizedTest
+@ValueSource(strings = { "javeed", "narayana", "pushpalatha", "himanshu", "tommy" })
+	void test(String name) {
+
+		System.out.println(name + "name tested");
+		assertTrue(name.length() > 5);
+
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
