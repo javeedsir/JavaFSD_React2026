@@ -1,0 +1,155 @@
+
+
+
+class Object{
+
+
+
+ int hashcode(){
+
+	return code; // 2389427 , 79872423, 1229076
+ }
+
+String toString(){
+
+
+	//hashcode(); ---> hexa decimal format
+
+	return  pkgname.classname@hexavalue;
+
+}
+
+
+
+
+}
+
+
+class  Employee {
+
+int eid;
+String ename;
+double salary;
+
+
+boolean equals(){
+
+
+}
+
+int hashcode(){
+	return eid;
+
+}
+
+
+
+String toString(){
+
+	return  "Eid "+this.eid;
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+TreeSet:
+--------
+It sort elements based on  natural order of elements.
+
+TreeSet can sort all those objects whose classes implements Comparable interface
+
+class String/Integer/All Wrapper classes   implements Comparable {
+
+
+ 	int  campareTo(obj1,obj2){
+
+		// sorting logics
+	}
+
+
+}
+
+
+	compareTo();  ----> "B" , "A"
+
+
+	"B".compareTo("A"); //   66 - 65  = 1
+	"B".compareTo("D");  // 66 - 68  = -2
+ 
+	"D".compareTo("C");  // 68 - 66  = 2
+
+ B   A     D   C
+
+step1: A   B  D   C
+step2: A  B  D  C
+step3: A B  C  D 
+
+
+
+
+
+
+
+class  Integer/Long/Double/Short/Float all wrapper implements   Comparable {
+
+
+	int compareTo(){
+		// logic to compare
+
+	}
+
+
+
+
+}
+
+--------------------------------------------------------------
+
+java.lang.Comparable  interface
+   int compareTo();
+
+class Employee  implements Comparable{
+
+	compareTo(){
+
+		// we need to write logic for sorting
+	}
+
+}
+
+
+
+
+
+
+
+java.util.Comparator  interface
+	
+	boolean equals();
+	int compare();
+
+
+
+class MyComparator extends Object  implements Comparator<Employee>{
+
+		compare(){
+			// logic for sorting
+
+		}
+
+
+
+}
+
+
+   Set  set = new TreeSet<Employee>(new MyComparator());
+
+

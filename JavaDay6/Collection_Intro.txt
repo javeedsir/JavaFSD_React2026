@@ -1,0 +1,127 @@
+class A, B , C
+
+
+class B extends A {
+
+
+}
+
+
+
+interface  I1 , I2 , I3
+
+
+interface I1  extends I2  , I3{ // multiple inheritance
+
+
+}
+
+
+class A  implements I1{
+
+
+}
+
+interface I1 {
+
+	m1();
+	m2();
+
+
+}
+
+interface I2 extends I1 {
+
+	m3();
+	m4();
+
+
+}
+
+
+class  T  implements  I2{
+
+	m1(){}
+	m2(){}
+	m3(){}
+	m4(){}
+
+
+
+}
+
+
+
+-----------------------
+
+Wrapper classes
+
+Integer   
+Long
+Double
+:::
+:::
+
+Note: all wrapper classes override toString();
+       all wrapper classes implements one interface  known as Comparable --> compareTo();
+
+
+
+Marker interface:
+----------------------
+
+public  interface     MyInterface{  // empty interface
+
+	// zero methods
+
+}
+
+Ex:  RandomAccess , Serializable , Cloneable  interface are marker in nature.
+
+
+
+
+API:
+Application Programming Interface
+
+API means set of 
+interfaces
+classes
+predefined 
+
+Framework:
+---------
+Set of APIs
+
+
+java.util.*; package
+
+Collections Framework
+
+List (API)
+Set(API)
+Queue(API)
+
+
+
+
+Collection c1 =  {1,2,3....10}
+
+Collection c2 = {2,4,6,8}
+
+c1.add(1);
+c1.add(2);
+
+
+c1.retainAll(c2);  // {2,4,6,8}
+
+c1.removeAll(); // delete all elements
+
+c1.addAll(c2); // {1,2,3....10 , 2,4,6,8}
+
+c1.contains(22);   ---> false
+
+c1.size();  // 10
+
+
+

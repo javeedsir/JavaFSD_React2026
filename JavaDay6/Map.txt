@@ -1,0 +1,36 @@
+
+
+Map:
+----
+
+It is not a child of Collection interface
+
+It is created by combining List and Set Families.
+
+
+ 1) If we want to represent a group of objects as “key-value” pair then we should go for 
+Map interface. 
+2) Both key and value are objects only. 
+3) Duplicate keys are not allowed but values can be duplicated. 
+4) Each key-value pair is called “one entry”.
+
+
+ put(k,v);
+
+ k,v = entry
+
+key column uses Set family features
+value column uses List family features
+
+methods:
+
+put(k,v)  --> add key,value in map
+
+remove(k) --> remove element for given key
+
+get(k) ---> returns value for given key
+
+
+keySet(); ---> return Set which gives set of keys
+
+values(); ---> return Collection which gives set of values
