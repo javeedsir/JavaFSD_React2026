@@ -1,0 +1,50 @@
+
+
+
+java.lang.*;
+public interface  Comparable{
+
+
+	int compareTo();
+
+}
+
+
+class  Integer/Double/Long.../String    implements Comparable {
+
+
+	public int compareTo(){
+
+
+		// logic to sort elements
+	}
+
+}
+
+
+
+java.util;
+
+interface  Comparator {
+
+
+	compare();
+
+}
+
+class   MyComparator implements Comparator<Employee>
+
+{
+
+	public 	int compare(){
+		// sorting logic
+	}
+
+
+}
+
+
+
+
+
+
