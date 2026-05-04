@@ -23,6 +23,19 @@ public class Main {
 								// (String x) -> {return x.length() > 5;};
 				
 					System.out.println(pi.isValidName("tom"));
+					
+					
+					
+					
+					MyInterface.m1();
+					
+					pi.m2();
+					
+					
+					
+					
+					
+					
 
 	}
 
