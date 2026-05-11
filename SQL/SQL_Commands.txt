@@ -54,6 +54,18 @@ Date
 DateTime
 
 
+Ename  char(10);
+
+TOM_ _ _ _ _ _ _
+
+Ename  varchar(10);
+
+TOM_ _ _ _ _ _ _  // LEFT OUT MEMORY WILL BE REUSE
+
+Date:  2026-05-11
+
+
+
 
 DDL- Data Defination lang
 CREATE , ALTER , DROP , TRUNCATE , RENAME

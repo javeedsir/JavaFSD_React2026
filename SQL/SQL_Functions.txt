@@ -1,0 +1,493 @@
+
+
+COALESCE:
+---------
+MySQL COALESCE() function returns the first non-NULL value of a list, or NULL if there are no non-NULL values.
+
+This function is useful in -
+
+It allows you to set a default value when a field is NULL.
+It returns the first non-NULL value from a list of expressions.
+This is particularly useful when dealing with potentially null fields, allowing you to provide a default value.
+This is handy in cases where you want to display a specific value instead of a blank space.
+It can be used in conjunction with aggregate functions to handle NULL values within calculations or expressions.
+It helps to prevent errors that may occur due to operations involving NULL values.
+In dynamic  SQL, where values might be unknown or changeable, COALESCE() is useful for providing a fallback value.
+It aids in data transformation by providing a way to replace NULL values with meaningful alternatives, making it easier to work with the data.
+
+mysql> SELECT   ENAME , COALESCE(comm,0)  as  commission from Employees;
+
+
+----------------------------
+IFNULL()
+
+
+By using IFNULL(), you can provide default values and ensure that your queries return meaningful results even when some data is missing. This function is particularly useful in data cleaning, reporting, and transforming data for better readability and usability.
+
+MySQL IFNULL() takes two expressions and if the first expression is not NULL, it returns the first expression. Otherwise, it returns the second expression. Depending on the context in which it is used, it returns either numeric or string value.
+
+-------------------------
+GREATEST()
+
+By using GREATEST(), you can ensure that you're always getting the highest value.
+It simplifies conditional logic by providing a concise way to find the maximum value without the need for complex CASE statements or multiple comparisons.
+In scenarios where the data is dynamic and the maximum value may change, GREATEST() provides an easy way to retrieve the current maximum value.
+GREATEST() can handle different data types, allowing you to compare and find the maximum value regardless of the data type of the expressions.
+
+mysql> select  GREATEST(10 ,15,7,20,45);
+
+mysql> SELECT GREATEST(salary,comm) from Employees;
+
+-----------------------------------------------------------
+
+
+CASE :
+=======
+
+
+
+-- This SQL statement uses a CASE expression to return a specific string based on the value of an expression
+-- Explanation: The query evaluates the value 1 and matches it against the specified cases, returning the corresponding result.
+SELECT 
+    CASE 1   -- The CASE expression begins, and the value to be compared (1) is specified
+     WHEN 1 THEN 'this is case one'   -- If the value is 1, return the string 'this is 									case one'
+        WHEN 2 THEN 'this is case two'   -- If the value is 2, return the string 'this is 							case two'
+        ELSE 'this is not in the case'   -- If the value does not match any WHEN 				 condition, return the string 'this is not in the case'
+    END AS 'how to execute case statement';  -- The END keyword marks the end of the CASE                                            expression and assigns an alias to the result
+
+
+
+==========================
+
+Example:
+
+mysql> SELECT
+    ->   CASE 1
+    ->   WHEN 1  THEN 'ONE'
+    ->   WHEN 2  THEN 'TWO'
+    ->   WHEN 3   THEN 'THREE'
+    ->   ELSE   'Invalid Option'
+    -> END  as  'case statement';
++----------------+
+| case statement |
++----------------+
+| ONE            |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT
+    ->  CASE  JOB
+    ->  WHEN  'manager' THEN 'Hello Manager'
+    ->  WHEN  'developer' THEN 'Hello Developer'
+    ->  WHEN  'tester'  THEN 'Hello Tester'
+    ->  ELSE  'HELLO Employee'
+    -> END  as 'JOB Greeting'    ,  ENAME , SALARY  from EMPLOYEEs;
++-----------------+--------+--------+
+| JOB Greeting    | ENAME  | SALARY |
++-----------------+--------+--------+
+| HELLO Employee  | king   |  50000 |
+| Hello Manager   | Scott  |  40000 |
+| Hello Manager   | Tom    |  35000 |
+| Hello Developer | Smith  |  30000 |
+| Hello Developer | Ford   |  25000 |
+| Hello Tester    | Ravi   |  24000 |
+| Hello Tester    | Satish |  22000 |
+| HELLO Employee  | Adam   |  40000 |
+| HELLO Employee  | Raju   |   5000 |
++-----------------+--------+--------+
+9 rows in set (0.00 sec)
+
+
+
+-------------------------------------------------------------
+
+STRING FUNCTIONS:
+==================
+
+1. CONCAT 
+
+
+mysql> SELECT  CONCAT('HELLO','WORLD');
++-------------------------+
+| CONCAT('HELLO','WORLD') |
++-------------------------+
+| HELLOWORLD              |
++-------------------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT  CONCAT('MR. ', Ename)  as  EmpName   from Employees;
++------------+
+| EmpName    |
++------------+
+| MR. king   |
+| MR. Scott  |
+| MR. Tom    |
+| MR. Smith  |
+| MR. Ford   |
+| MR. Ravi   |
+| MR. Satish |
+| MR. Adam   |
+| MR. Raju   |
++------------+
+
+mysql> select  SUBSTR('JAVEED',3,4);
++----------------------+
+| SUBSTR('JAVEED',3,4) |
++----------------------+
+| VEED                 |
++----------------------+
+
+TRIM, RTRIM , LTRIM , LENGTH
+===================================:
+
+
+mysql> SELECT  length(RTRIM(' hello '));
++--------------------------+
+| length(RTRIM(' hello ')) |
++--------------------------+
+|                        6 |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT  length(LTRIM(' hello '));
++--------------------------+
+| length(LTRIM(' hello ')) |
++--------------------------+
+|                        6 |
++--------------------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT  length(TRIM(' hello '));
++-------------------------+
+| length(TRIM(' hello ')) |
++-------------------------+
+|                       5 |
++-------------------------+
+1 row in set (0.00 sec)
+
+LOWER , UPPER Functions
+=========================
+
+
+mysql> SELECT  UPPER('king') ;
++---------------+
+| UPPER('king') |
++---------------+
+| KING          |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT   LOWER('KING') ;
++---------------+
+| LOWER('KING') |
++---------------+
+| king          |
++---------------+
+1 row in set (0.00 sec)
+
+
+NUMERIC FUNCTIONS:
+==================
+
+
+
+mysql> select  CEIL(4.000001)  ;
++----------------+
+| CEIL(4.000001) |
++----------------+
+|              5 |
++----------------+
+1 row in set (0.01 sec)
+
+mysql> select  FLOOR(4.9999999999)  ;
++---------------------+
+| FLOOR(4.9999999999) |
++---------------------+
+|                   4 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select  ROUND(4.4321);
++---------------+
+| ROUND(4.4321) |
++---------------+
+|             4 |
++---------------+
+1 row in set (0.01 sec)
+
+mysql> select  ROUND(4.4321 , 0);
++-------------------+
+| ROUND(4.4321 , 0) |
++-------------------+
+|                 4 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select  ROUND(4.4321 , 2);
++-------------------+
+| ROUND(4.4321 , 2) |
++-------------------+
+|              4.43 |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select  ROUND(4.4321 , -2);
++--------------------+
+| ROUND(4.4321 , -2) |
++--------------------+
+|                  0 |
++--------------------+
+1 row in set (0.01 sec)
+
+mysql> select  ROUND(4.4321 , -1);
++--------------------+
+| ROUND(4.4321 , -1) |
++--------------------+
+|                  0 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select  ROUND(4.4321 , 3);
++-------------------+
+| ROUND(4.4321 , 3) |
++-------------------+
+|             4.432 |
++-------------------+
+1 row in set (0.00 sec)
+
+
+mysql> select  TRUNCATE(1.999 , 0);
++---------------------+
+| TRUNCATE(1.999 , 0) |
++---------------------+
+|                   1 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select  TRUNCATE(1.999 , 2);
++---------------------+
+| TRUNCATE(1.999 , 2) |
++---------------------+
+|                1.99 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select  TRUNCATE(1.999 , 1);
++---------------------+
+| TRUNCATE(1.999 , 1) |
++---------------------+
+|                 1.9 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select  TRUNCATE(1.999 , -1);
++----------------------+
+| TRUNCATE(1.999 , -1) |
++----------------------+
+|                    0 |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> select  TRUNCATE(450.999 , -1);
++------------------------+
+| TRUNCATE(450.999 , -1) |
++------------------------+
+|                    450 |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  TRUNCATE(450.999 , -2);
++------------------------+
+| TRUNCATE(450.999 , -2) |
++------------------------+
+|                    400 |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  TRUNCATE(453.999 , -1);
++------------------------+
+| TRUNCATE(453.999 , -1) |
++------------------------+
+|                    450 |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  TRUNCATE(453.999 , -2);
++------------------------+
+| TRUNCATE(453.999 , -2) |
++------------------------+
+|                    400 |
++------------------------+
+1 row in set (0.00 sec)
+
+
+DATE TIME FUNCTIONS:
+---------------------
+mysql> SELECT CURRENT_DATE;
++--------------+
+| CURRENT_DATE |
++--------------+
+| 2024-09-26   |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT CURTIME();
++-----------+
+| CURTIME() |
++-----------+
+| 16:47:42  |
++-----------+
+1 row in set (0.01 sec)
+
+mysql> SELECT CURDATE();
++------------+
+| CURDATE()  |
++------------+
+| 2024-09-26 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT CURRENT_TIMESTAMP();
++---------------------+
+| CURRENT_TIMESTAMP() |
++---------------------+
+| 2024-09-26 16:48:42 |
++---------------------+
+
+
+
+
+
+
+mysql> SELECT  DATE_ADD( '2024-09-15' , INTERVAL  5 DAY);
++-------------------------------------------+
+| DATE_ADD( '2024-09-15' , INTERVAL  5 DAY) |
++-------------------------------------------+
+| 2024-09-20                                |
++-------------------------------------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT  DATE_ADD( '2024-09-15' , INTERVAL  5  MONTH);
++----------------------------------------------+
+| DATE_ADD( '2024-09-15' , INTERVAL  5  MONTH) |
++----------------------------------------------+
+| 2025-02-15                                   |
++----------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT  DATE_ADD( '2024-09-15' , INTERVAL  5  WEEK);
++---------------------------------------------+
+| DATE_ADD( '2024-09-15' , INTERVAL  5  WEEK) |
++---------------------------------------------+
+| 2024-10-20                                  |
++---------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT  DATE_ADD( '2024-09-15' , INTERVAL  5  YEAR);
++---------------------------------------------+
+| DATE_ADD( '2024-09-15' , INTERVAL  5  YEAR) |
++---------------------------------------------+
+| 2029-09-15                                  |
++---------------------------------------------+
+1 row in set (0.00 sec)
+
+
+
+
+mysql> SELECT DAYOFYEAR(CURRENT_DATE);
++-------------------------+
+| DAYOFYEAR(CURRENT_DATE) |
++-------------------------+
+|                     270 |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DAYOFWEEK(CURRENT_DATE);
++-------------------------+
+| DAYOFWEEK(CURRENT_DATE) |
++-------------------------+
+|                       5 |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT DAYOFMONTH(CURRENT_DATE);
++--------------------------+
+| DAYOFMONTH(CURRENT_DATE) |
++--------------------------+
+|                       26 |
++--------------------------+
+
+
+
+
+mysql> SELECT LAST_DAY('2024-02-01');
++------------------------+
+| LAST_DAY('2024-02-01') |
++------------------------+
+| 2024-02-29             |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT LAST_DAY('2025-02-01');
++------------------------+
+| LAST_DAY('2025-02-01') |
++------------------------+
+| 2025-02-28             |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT   DATE_FORMAT('2024-09-26' , '%a  %b  %y');
++------------------------------------------+
+| DATE_FORMAT('2024-09-26' , '%a  %b  %y') |
++------------------------------------------+
+| Thu  Sep  24                             |
++------------------------------------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT   DATE_FORMAT('2024-09-26' , '%a  %b  %Y');
++------------------------------------------+
+| DATE_FORMAT('2024-09-26' , '%a  %b  %Y') |
++------------------------------------------+
+| Thu  Sep  2024                           |
++------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT   DATE_FORMAT('2024-09-26' , '%a  %b  %Y   %H  %i');
++---------------------------------------------------+
+| DATE_FORMAT('2024-09-26' , '%a  %b  %Y   %H  %i') |
++---------------------------------------------------+
+| Thu  Sep  2024   00  00                           |
++---------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT   DATE_FORMAT( NOW()  , '%a  %b  %Y   %H  %i');
++----------------------------------------------+
+| DATE_FORMAT( NOW()  , '%a  %b  %Y   %H  %i') |
++----------------------------------------------+
+| Thu  Sep  2024   17  00                      |
++----------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT   DATE_FORMAT( NOW()  , '%a  %b  %Y   %H  %i');
++----------------------------------------------+
+| DATE_FORMAT( NOW()  , '%a  %b  %Y   %H  %i') |
++----------------------------------------------+
+| Thu  Sep  2024   17  01                      |
++----------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  EXTRACT( YEAR   FROM '2024-09-26')
+    -> ;
++------------------------------------+
+| EXTRACT( YEAR   FROM '2024-09-26') |
++------------------------------------+
+|                               2024 |
++------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select  EXTRACT( DAY   FROM '2024-09-26');
++-----------------------------------+
+| EXTRACT( DAY   FROM '2024-09-26') |
++-----------------------------------+
+|                                26 |
++-----------------------------------+
