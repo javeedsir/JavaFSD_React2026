@@ -1,0 +1,150 @@
+The SQL standard defines the following three set operations:
+
+UNION: Combine all results from two query blocks into a single result, omitting any duplicates.
+
+INTERSECT: Combine only those rows which the results of two query blocks have in common, omitting any duplicates.
+
+EXCEPT: For two query blocks A and B, return all results from A which are not also present in B, omitting any duplicates.
+
+(Some database systems, such as Oracle, use MINUS for the name of this operator. This is not supported in MySQL.)
+
+
+
+UNION:
+------
+
+mysql> select eid , ename  from Employees
+    -> UNION
+    -> select dno , dname from dept;
+
+mysql> select dno  from Employees
+    -> UNION
+    -> select dno  from dept;
+
+
+mysql> select dno  from Employees
+    -> UNION
+    -> select dno,dname  from dept;
+ERROR 1222 (21000): The used SELECT statements have a different number of columns
+
+
+
+INTERSECT:
+------------
+
+mysql> select dno  from Employees
+    -> INTERSECT
+    -> select dno  from dept;
++-----+
+| dno |
++-----+
+|  10 |
+|  20 |
+|  30 |
+|  40 |
++-----+
+
+DISTINCT:
+----------
+mysql> select distinct job  from Employees;
+
+
+LIMIT:
+------
+mysql> select *  from Employees  limit 3;
+
+Dual Table:
+------------
+
+mysql> select    current_date as mydate   from Dual;
++------------+
+| mydate     |
++------------+
+| 2024-09-30 |
++------------+
+mysql> select  Repeat('A',3) from Dual;
++---------------+
+| Repeat('A',3) |
++---------------+
+| AAA           |
++---------------+
+
+EXCEPT:  (It is similar to the MINUS in other Databases, MINUS does not support by Mysql)
+-------
+
+mysql> select dno  from Employees
+    -> EXCEPT
+    -> select dno  from  dept;
++------+
+| dno  |
++------+
+| NULL |
++------+
+
+EXISTS:
+--------
+
+The MySQL EXISTS Operator
+The EXISTS operator is used to test for the existence of any record in a subquery.
+
+The EXISTS operator returns TRUE if the subquery returns one or more records.
+
+
+
+mysql> SELECT * FROM  Dept WHERE  EXISTS (select  dno  from Employees  where  Employees.dno = Dept.dno);
++-----+-------------+-----------+
+| dno | dname       | location  |
++-----+-------------+-----------+
+|  10 | Development | Banglore  |
+|  20 | Testing     | Chennai   |
+|  30 | HR          | Mumbai    |
+|  40 | Operation   | Hyderabad |
++-----+-------------+-----------+
+
+
+
+mysql> SELECT * FROM  Dept WHERE  NOT EXISTS (select  dno  from Employees  where  Employees.dno = Dept.dno);
++-----+-------+----------+
+| dno | dname | location |
++-----+-------+----------+
+|  50 | Sales | Delhi    |
++-----+-------+----------+
+
+
+
+
+
+
+
+
+mysql> SELECT * FROM  Employees e WHERE  EXISTS (select  eid  from Employees m  where  m.eid =  e.mid);
++-----+--------+--------+------+-----------+------------+------+------+
+| eid | ename  | salary | comm | job       | doj        | mid  | dno  |
++-----+--------+--------+------+-----------+------------+------+------+
+| 102 | Scott  |  40000 |  500 | manager   | 1991-05-23 |  101 |   10 |
+| 103 | Tom    |  35000 | 1000 | manager   | 1991-09-15 |  101 |   20 |
+| 104 | Smith  |  30000 | 1500 | developer | 1995-02-21 |  102 |   10 |
+| 105 | Ford   |  25000 | 1000 | developer | 1999-09-12 |  102 |   10 |
+| 106 | Ravi   |  24000 | 3000 | tester    | 2024-09-25 |  103 |   20 |
+| 107 | Satish |  22000 | 2000 | tester    | 1998-04-22 |  103 |   20 |
+| 108 | Adam   |  40000 | NULL | analyst   | 1992-03-07 |  101 |   30 |
+| 109 | Raju   |   5000 |  600 | clerk     | 1994-01-09 |  101 |   40 |
+| 110 | Javeed |  25000 | NULL | Trainer   | 2024-09-27 |  101 | NULL |
++-----+--------+--------+------+-----------+------------+------+------+
+
+
+
+
+mysql> CREATE  TABLE CUSTOMER
+     (
+     CID  INTEGER  PRIMARY KEY   AUTO_INCREMENT,
+     CNAME  Varchar(20)  DEFAULT 'NOT GIVEN',
+     DOP  DATE  DEFAULT  '2024-09-30'
+     );
+
+
+mysql> ALTER TABLE STUDENT  ALTER  SNAME  SET DEFAULT 'Not Available';
+
+mysql> ALTER TABLE STUDENT  ALTER  SNAME  DROP Default;
+
+
