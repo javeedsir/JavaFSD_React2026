@@ -1,0 +1,243 @@
+mysql> SELECT  * FROM  Employees  where  salary = 50000;
++-----+-------+--------+------+-----------+------------+------+
+| eid | ename | salary | comm | job       | doj        | mid  |
++-----+-------+--------+------+-----------+------------+------+
+| 101 | king  |  50000 | NULL | president | 1990-02-13 | NULL |
++-----+-------+--------+------+-----------+------------+------+
+1 row in set (0.00 sec)
+
+mysql> SELECT  * FROM  Employees  where  salary <> 50000;
++-----+--------+--------+------+-----------+------------+------+
+| eid | ename  | salary | comm | job       | doj        | mid  |
++-----+--------+--------+------+-----------+------------+------+
+| 102 | Scott  |  40000 |  500 | manager   | 1991-05-23 |  101 |
+| 103 | Tom    |  35000 | 1000 | manager   | 1991-09-15 |  101 |
+| 104 | Smith  |  30000 | 1500 | developer | 1995-02-21 |  102 |
+| 105 | Ford   |  25000 | 1000 | developer | 1999-09-12 |  102 |
+| 106 | Ravi   |  24000 | 3000 | tester    | 2024-09-25 |  103 |
+| 107 | Satish |  22000 | 2000 | tester    | 1998-04-22 |  103 |
+| 108 | Adam   |  40000 | NULL | analyst   | 1992-03-07 |  101 |
+| 109 | Raju   |   5000 |  500 | clerk     | 1994-01-09 |  101 |
++-----+--------+--------+------+-----------+------------+------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT  * FROM  Employees  where  salary >= 30000;
++-----+-------+--------+------+-----------+------------+------+
+| eid | ename | salary | comm | job       | doj        | mid  |
++-----+-------+--------+------+-----------+------------+------+
+| 101 | king  |  50000 | NULL | president | 1990-02-13 | NULL |
+| 102 | Scott |  40000 |  500 | manager   | 1991-05-23 |  101 |
+| 103 | Tom   |  35000 | 1000 | manager   | 1991-09-15 |  101 |
+| 104 | Smith |  30000 | 1500 | developer | 1995-02-21 |  102 |
+| 108 | Adam  |  40000 | NULL | analyst   | 1992-03-07 |  101 |
++-----+-------+--------+------+-----------+------------+------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT  * FROM  Employees  where  salary <= 30000;
++-----+--------+--------+------+-----------+------------+------+
+| eid | ename  | salary | comm | job       | doj        | mid  |
++-----+--------+--------+------+-----------+------------+------+
+| 104 | Smith  |  30000 | 1500 | developer | 1995-02-21 |  102 |
+| 105 | Ford   |  25000 | 1000 | developer | 1999-09-12 |  102 |
+| 106 | Ravi   |  24000 | 3000 | tester    | 2024-09-25 |  103 |
+| 107 | Satish |  22000 | 2000 | tester    | 1998-04-22 |  103 |
+| 109 | Raju   |   5000 |  500 | clerk     | 1994-01-09 |  101 |
++-----+--------+--------+------+-----------+------------+------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT  * FROM  Employees  where  salary   !=   50000;
++-----+--------+--------+------+-----------+------------+------+
+| eid | ename  | salary | comm | job       | doj        | mid  |
++-----+--------+--------+------+-----------+------------+------+
+| 102 | Scott  |  40000 |  500 | manager   | 1991-05-23 |  101 |
+| 103 | Tom    |  35000 | 1000 | manager   | 1991-09-15 |  101 |
+| 104 | Smith  |  30000 | 1500 | developer | 1995-02-21 |  102 |
+| 105 | Ford   |  25000 | 1000 | developer | 1999-09-12 |  102 |
+| 106 | Ravi   |  24000 | 3000 | tester    | 2024-09-25 |  103 |
+| 107 | Satish |  22000 | 2000 | tester    | 1998-04-22 |  103 |
+| 108 | Adam   |  40000 | NULL | analyst   | 1992-03-07 |  101 |
+| 109 | Raju   |   5000 |  500 | clerk     | 1994-01-09 |  101 |
++-----+--------+--------+------+-----------+------------+------+
+8 rows in set (0.00 sec)
+
+
+
+
+mysql> select eid , ename, salary , job , doj   from Employees  where   JOB = 'developer'   OR   JOB = 'tester';
++-----+--------+--------+-----------+------------+
+| eid | ename  | salary | job       | doj        |
++-----+--------+--------+-----------+------------+
+| 104 | Smith  |  30000 | developer | 1995-02-21 |
+| 105 | Ford   |  25000 | developer | 1999-09-12 |
+| 106 | Ravi   |  24000 | tester    | 2024-09-25 |
+| 107 | Satish |  22000 | tester    | 1998-04-22 |
++-----+--------+--------+-----------+------------+
+4 rows in set (0.00 sec)
+
+
+mysql> select eid , ename, salary , job , doj   from Employees  where   JOB = 'developer'   OR   JOB = 'trainer';
++-----+-------+--------+-----------+------------+
+| eid | ename | salary | job       | doj        |
++-----+-------+--------+-----------+------------+
+| 104 | Smith |  30000 | developer | 1995-02-21 |
+| 105 | Ford  |  25000 | developer | 1999-09-12 |
++-----+-------+--------+-----------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select eid , ename, salary , job , doj   from Employees  where   salary  = 30000 OR salary = 40000;
++-----+-------+--------+-----------+------------+
+| eid | ename | salary | job       | doj        |
++-----+-------+--------+-----------+------------+
+| 102 | Scott |  40000 | manager   | 1991-05-23 |
+| 104 | Smith |  30000 | developer | 1995-02-21 |
+| 108 | Adam  |  40000 | analyst   | 1992-03-07 |
++-----+-------+--------+-----------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select eid , ename, salary , job , doj   from Employees  where   salary  = 30000   AND    salary = 40000;
+Empty set (0.00 sec)
+
+mysql> select eid , ename, salary , job , doj   from Employees  where   salary  = 30000   AND    job = 'developer';
++-----+-------+--------+-----------+------------+
+| eid | ename | salary | job       | doj        |
++-----+-------+--------+-----------+------------+
+| 104 | Smith |  30000 | developer | 1995-02-21 |
++-----+-------+--------+-----------+------------+
+1 row in set (0.00 sec)
+
+mysql> select eid , ename, salary , job , doj   from Employees  where   salary BETWEEN  5000  AND  30000;
++-----+--------+--------+-----------+------------+
+| eid | ename  | salary | job       | doj        |
++-----+--------+--------+-----------+------------+
+| 104 | Smith  |  30000 | developer | 1995-02-21 |
+| 105 | Ford   |  25000 | developer | 1999-09-12 |
+| 106 | Ravi   |  24000 | tester    | 2024-09-25 |
+| 107 | Satish |  22000 | tester    | 1998-04-22 |
+| 109 | Raju   |   5000 | clerk     | 1994-01-09 |
++-----+--------+--------+-----------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select eid , ename, salary , job , doj   from Employees  where   salary  NOT  BETWEEN  5000  AND  30000;
++-----+-------+--------+-----------+------------+
+| eid | ename | salary | job       | doj        |
++-----+-------+--------+-----------+------------+
+| 101 | king  |  50000 | president | 1990-02-13 |
+| 102 | Scott |  40000 | manager   | 1991-05-23 |
+| 103 | Tom   |  35000 | manager   | 1991-09-15 |
+| 108 | Adam  |  40000 | analyst   | 1992-03-07 |
++-----+-------+--------+-----------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select eid , ename, salary , job , doj   from Employees  where   salary  = 30000 OR salary = 40000 OR salary  = 50000;
++-----+-------+--------+-----------+------------+
+| eid | ename | salary | job       | doj        |
++-----+-------+--------+-----------+------------+
+| 101 | king  |  50000 | president | 1990-02-13 |
+| 102 | Scott |  40000 | manager   | 1991-05-23 |
+| 104 | Smith |  30000 | developer | 1995-02-21 |
+| 108 | Adam  |  40000 | analyst   | 1992-03-07 |
++-----+-------+--------+-----------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select eid , ename, salary , job , doj   from Employees  where   salary  IN (30000,40000,50000);
++-----+-------+--------+-----------+------------+
+| eid | ename | salary | job       | doj        |
++-----+-------+--------+-----------+------------+
+| 101 | king  |  50000 | president | 1990-02-13 |
+| 102 | Scott |  40000 | manager   | 1991-05-23 |
+| 104 | Smith |  30000 | developer | 1995-02-21 |
+| 108 | Adam  |  40000 | analyst   | 1992-03-07 |
++-----+-------+--------+-----------+------------+
+4 rows in set (0.01 sec)
+
+mysql> select eid , ename, salary , job , doj   from Employees  where   salary  NOT   IN (30000,40000,50000);
++-----+--------+--------+-----------+------------+
+| eid | ename  | salary | job       | doj        |
++-----+--------+--------+-----------+------------+
+| 103 | Tom    |  35000 | manager   | 1991-09-15 |
+| 105 | Ford   |  25000 | developer | 1999-09-12 |
+| 106 | Ravi   |  24000 | tester    | 2024-09-25 |
+| 107 | Satish |  22000 | tester    | 1998-04-22 |
+| 109 | Raju   |   5000 | clerk     | 1994-01-09 |
++-----+--------+--------+-----------+------------+
+5 rows in set (0.00 sec)
+
+
+
+mysql> select * from Employees  where comm = NULL;
+Empty set (0.00 sec)
+
+mysql> select * from Employees  where comm   IS   NULL;
++-----+-------+--------+------+-----------+------------+------+
+| eid | ename | salary | comm | job       | doj        | mid  |
++-----+-------+--------+------+-----------+------------+------+
+| 101 | king  |  50000 | NULL | president | 1990-02-13 | NULL |
+| 108 | Adam  |  40000 | NULL | analyst   | 1992-03-07 |  101 |
++-----+-------+--------+------+-----------+------------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from Employees  where comm   IS  NOT  NULL;
++-----+--------+--------+------+-----------+------------+------+
+| eid | ename  | salary | comm | job       | doj        | mid  |
++-----+--------+--------+------+-----------+------------+------+
+| 102 | Scott  |  40000 |  500 | manager   | 1991-05-23 |  101 |
+| 103 | Tom    |  35000 | 1000 | manager   | 1991-09-15 |  101 |
+| 104 | Smith  |  30000 | 1500 | developer | 1995-02-21 |  102 |
+| 105 | Ford   |  25000 | 1000 | developer | 1999-09-12 |  102 |
+| 106 | Ravi   |  24000 | 3000 | tester    | 2024-09-25 |  103 |
+| 107 | Satish |  22000 | 2000 | tester    | 1998-04-22 |  103 |
+| 109 | Raju   |   5000 |  500 | clerk     | 1994-01-09 |  101 |
++-----+--------+--------+------+-----------+------------+------+
+7 rows in set (0.00 sec)
+
+
+
+
+
+mysql> SELECT * FROM Employees  WHERE   ename  like  '%i%';
++-----+--------+--------+------+-----------+------------+------+
+| eid | ename  | salary | comm | job       | doj        | mid  |
++-----+--------+--------+------+-----------+------------+------+
+| 101 | king   |  50000 | NULL | president | 1990-02-13 | NULL |
+| 104 | Smith  |  30000 | 1500 | developer | 1995-02-21 |  102 |
+| 106 | Ravi   |  24000 | 3000 | tester    | 2024-09-25 |  103 |
+| 107 | Satish |  22000 | 2000 | tester    | 1998-04-22 |  103 |
++-----+--------+--------+------+-----------+------------+------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Employees  WHERE   ename  like  '%i_';
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM Employees  WHERE   ename  like  '_O_';
++-----+-------+--------+------+---------+------------+------+
+| eid | ename | salary | comm | job     | doj        | mid  |
++-----+-------+--------+------+---------+------------+------+
+| 103 | Tom   |  35000 | 1000 | manager | 1991-09-15 |  101 |
++-----+-------+--------+------+---------+------------+------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * FROM Employees  WHERE   SALARY  LIKE  '2%';
++-----+--------+--------+------+-----------+------------+------+
+| eid | ename  | salary | comm | job       | doj        | mid  |
++-----+--------+--------+------+-----------+------------+------+
+| 105 | Ford   |  25000 | 1000 | developer | 1999-09-12 |  102 |
+| 106 | Ravi   |  24000 | 3000 | tester    | 2024-09-25 |  103 |
+| 107 | Satish |  22000 | 2000 | tester    | 1998-04-22 |  103 |
++-----+--------+--------+------+-----------+------------+------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Employees  WHERE     doj  LIKE   '%-02-%';
++-----+-------+--------+------+-----------+------------+------+
+| eid | ename | salary | comm | job       | doj        | mid  |
++-----+-------+--------+------+-----------+------------+------+
+| 101 | king  |  50000 | NULL | president | 1990-02-13 | NULL |
+| 104 | Smith |  30000 | 1500 | developer | 1995-02-21 |  102 |
++-----+-------+--------+------+-----------+------------+------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+
+

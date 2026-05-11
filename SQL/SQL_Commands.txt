@@ -1,0 +1,141 @@
+
+SQL:
+
+Structural Query Lang.
+It is common lang for all RDBMS
+
+ex: RDBMS --> Oracle,Mysql,Sybase,DB2,H2,Postgres .....
+
+SQL is used to communicate any one the RDBMS databases.
+
+SQL can perform CRUD Operations againts any DB.
+
+C - Create/insert a new record
+R - Retrieve / select records
+U - Update records in table
+D - Delete records from table
+
+
+SQL is again divided into multiple sub languages:
+
+DDL- Data Definitation lang
+CREATE , ALTER , DROP , TRUNCATE , RENAME
+------------------
+DML - Data Manipulation lang
+INSERT , UPDATE , DELETE
+-------------------
+
+DQL/DRL - Data Query Lang / Data Retrieval lang
+SELECT
+------------------------------------
+TCL - Transaction Control lang
+COMMIT , ROLLBACK , SAVEPOINT
+-------------------------------------
+DCL- Data control lang
+GRANT , REVOKE
+
+
+MYSQL : It is RDBMS given by Oracle corporation.
+
+MYSQL can be accessible using Mysql Workbench (GUI)
+MYSQL Command Line Client (CLI)
+
+Data types:
+-----------
+
+Int
+BigInt
+Decimal
+Double
+Char
+Varchar2
+Boolean
+Date
+DateTime
+
+
+
+DDL- Data Defination lang
+CREATE , ALTER , DROP , TRUNCATE , RENAME
+
+CREATE:
+It is used to Create any Database Object like
+Tables,Database , Views, Index , User etc
+
+
+CREATE Database  testdb;
+
+use testdb;
+
+
+CREATE Table Employee (
+    Eid Integer(3) PRIMARY KEY , 
+     EName varchar(20), 
+     Salary Double(7,2),
+     Comm    Decimal(7),
+     Job   varchar(30),
+     DOJ    Date , 
+     Mid   Integer(3) 
+     	
+  );
+
+
+
+
+DML - Data Manipulation lang
+INSERT , UPDATE , DELETE
+
+DML is used whenever we want to work with table's data like
+insert records , update records, delete records in tables.
+
+
+INSERT INTO  Employee values(101,'King',50000,null,'President','2020-12-01',null);
+
+INSERT INTO  Employee values(102,'Smith',45000,null,'Manager','2021-09-23',101);
+
+
+INSERT INTO  Employee values(103,'Ford',40000,null,'Manager','2022-04-15',101);
+
+INSERT INTO  Employee values(104,'Tom',30000,1500,'Developer','2023-10-18',102);
+
+INSERT INTO  Employee values(105,'Scott',35000,1000,'Developer','2023-12-25',102);
+
+
+INSERT INTO  Employee values(106,'Jerry',25000,3000,'Tester',current_date,103);
+INSERT INTO  Employee values(107,'Ravi',22000,4000,'Tester',current_date-1,103);
+
+
+Example for inserting multiple records:
+
+
+INSERT INTO  Employee values(108,'Adam',47000,null,'Analyst','2024-01-01',101) , 							(109,'javeed',47000,null,'manager','2024-01-01',101) ;
+
+
+INSERT INTO Employee(Eid,Ename,Doj)   values(110,'anil','2024-01-19');
+
+
+
+
+
+select * from Employee;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
