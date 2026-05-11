@@ -1,0 +1,100 @@
+
+PROJECTION:
+--------------
+
+mysql> select * from employees;
++-----+--------+--------+------+-----------+------------+------+
+| eid | ename  | salary | comm | job       | doj        | mid  |
++-----+--------+--------+------+-----------+------------+------+
+| 101 | king   |  50000 | NULL | president | 1990-02-13 | NULL |
+| 102 | Scott  |  40000 |  500 | manager   | 1991-05-23 |  101 |
+| 103 | Tom    |  35000 | 1000 | manager   | 1991-09-15 |  101 |
+| 104 | Smith  |  30000 | 1500 | developer | 1995-02-21 |  102 |
+| 105 | Ford   |  25000 | 1000 | developer | 1999-09-12 |  102 |
+| 106 | Ravi   |  24000 | 3000 | tester    | 2024-09-25 |  103 |
+| 107 | Satish |  22000 | 2000 | tester    | 1998-04-22 |  103 |
+| 108 | Adam   |  40000 | NULL | analyst   | 1992-03-07 |  101 |
+| 109 | Raju   |   5000 |  500 | clerk     | 1994-01-09 |  101 |
++-----+--------+--------+------+-----------+------------+------+
+9 rows in set (0.00 sec)
+
+mysql> select eid,ename,salary,job  from Employees;
++-----+--------+--------+-----------+
+| eid | ename  | salary | job       |
++-----+--------+--------+-----------+
+| 101 | king   |  50000 | president |
+| 102 | Scott  |  40000 | manager   |
+| 103 | Tom    |  35000 | manager   |
+| 104 | Smith  |  30000 | developer |
+| 105 | Ford   |  25000 | developer |
+| 106 | Ravi   |  24000 | tester    |
+| 107 | Satish |  22000 | tester    |
+| 108 | Adam   |  40000 | analyst   |
+| 109 | Raju   |   5000 | clerk     |
++-----+--------+--------+-----------+
+
+
+
+
+SELECTION:
+----------
+
+mysql> select eid,ename,salary,job  from Employees where  salary > 30000;
++-----+-------+--------+-----------+
+| eid | ename | salary | job       |
++-----+-------+--------+-----------+
+| 101 | king  |  50000 | president |
+| 102 | Scott |  40000 | manager   |
+| 103 | Tom   |  35000 | manager   |
+| 108 | Adam  |  40000 | analyst   |
++-----+-------+--------+-----------+
+
+ALIAS Names for columns or table:
+-------------------------------------
+
+mysql> select eid AS EmpId, ename AS EmpName, comm  commission   from Employees AS "Emp";
++-------+---------+------------+
+| EmpId | EmpName | commission |
++-------+---------+------------+
+|   101 | king    |       NULL |
+|   102 | Scott   |        500 |
+|   103 | Tom     |       1000 |
+|   104 | Smith   |       1500 |
+|   105 | Ford    |       1000 |
+|   106 | Ravi    |       3000 |
+|   107 | Satish  |       2000 |
+|   108 | Adam    |       NULL |
+|   109 | Raju    |        500 |
++-------+---------+------------+
+
+Distinct:
+----------
+To display only unique records from table
+
+mysql> select  distinct job  from Employees;
++-----------+
+| job       |
++-----------+
+| president |
+| manager   |
+| developer |
+| tester    |
+| analyst   |
+| clerk     |
++-----------+
+6 rows in set (0.00 sec)
+
+mysql> select  distinct(job)  from Employees;
++-----------+
+| job       |
++-----------+
+| president |
+| manager   |
+| developer |
+| tester    |
+| analyst   |
+| clerk     |
++-----------+
+
+
+

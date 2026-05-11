@@ -1,0 +1,132 @@
+
+Constraints:
+-------------
+1.PRIMARY KEY
+2. FOREIGN KEY 
+3. NOT NULL 
+4. UNIQUE
+5. CHECK 
+
+
+
+CREATE TABLE  Student (sid int unsigned   ,
+		       sname varchar(20)  NOT NULL,
+		       email  varchar(20)   UNIQUE ,
+		       fee   decimal   NOT NULL DEFAULT 0,
+		       country  varchar(20) DEFAULT 'India' ,	 			 
+			CONSTRAINT  student_sid_pk  PRIMARY KEY(sid)
+			
+
+			);
+
+
+CREATE TABLE  Subject  (
+			subId  int  unique,
+			subName varchar(25) NOT NULL  ,
+			Marks  int  ,
+		sid  int unsigned   references Student(sid)   ON DELETE SET NULL/ON DELETE CASCADE
+
+			);
+
+------------------------------------------------------
+
+
+CREATE TABLE  Subject  (
+			subId  int  unique,
+			subName varchar(25) NOT NULL,
+			Marks  int ,
+			sid  int unsigned   ,
+
+CONSTRAINT  subject_sid_fk  FOREIGN KEY(sid)  REFERENCES   Student(sid)
+
+			);
+
+
+
+ALTER TABLE  Subject ADD (email varchar(20)  references  Student(email) ON DELETE SET NULL);
+
+			
+
+
+DDL:
+-----
+ALTER command:
+	options:  ADD , MODIFY , DROP 
+
+
+	ALTER TABLE Student  ADD(MobileNo BigInt);
+
+
+	ALTER TABLE  Student MODIFY sname  varchar(30);
+
+	
+	ALTER TABLE Student Drop column  mobileno;
+	ALTER TABLE Student Drop constraint  student_sid_pk;
+
+student record
+---------------
+
+insert into student(sid,sname,email,fee,mobileno) values(111,'ravi','ravi@gmail.com',5000,9988776655);
+
+
+subject record
+--------------
+insert into subject values(1,'Java',80,111);
+
+
+insert into subject values(2,'Python',70,111);
+
+
+
+
+DROP command:
+
+DROP TABLE table_name;
+
+TRUNCATE TABLE table_name;	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

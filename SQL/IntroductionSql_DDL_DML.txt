@@ -1,0 +1,191 @@
+
+SQL:
+----
+Structure Query Language can be use to communication with any Database System
+Ex: Mysql , Oracle , DB2 , H2 , Sybase , PostgreSQL  .......
+
+
+Data Types in MYSQL:
+------------------
+INTEGER
+BIG INTEGER
+DECIMAL
+CHAR
+VARCHAR
+DATE
+DATETIME
+BOOLEAN
+
+
+
+IFSC CHAR(8)
+
+HDFC1234
+ICIC0099
+
+
+
+ename  VARCHAR(10)
+
+king
+
+
+
+
+
+SQL
+----:
+1. DDL - Data Definition Language
+2. DML - Data Manipulation Language
+3. DRL/DQL - Data Retrieval / Data Query Language
+4. TCL   - Transaction Control Lang
+5. DCL -   Data Control Lang
+
+
+Mysql System Commands:
+-----------------
+
+show databases;
+use  database_name;
+show tables;
+
+describe/desc   table_name;
+
+DDL - Data Definition Language
+==============================
+CREATE , ALTER , DROP , TRUNCATE
+
+
+CREATE TABLE  employees(
+			eid INTEGER(3) Primary Key ,
+			 ename VARCHAR(20) , 
+			salary Decimal,
+			comm Decimal,
+			job  VARCHAR(20),
+			doj DATE,
+			mid INTEGER(3)
+			
+
+			);
+
+
+Primary Key  =   UNIQUE + NOT NULL
+
+
+---------------------------------------------
+
+CREATE TABLE   dept (
+
+		 dno integer  Primary key,               // column level constraint
+		 dname  varchar(15),
+		 location  varchar(20)
+		);
+
+--------------------------------------------------
+
+CREATE TABLE   dept (
+
+		 dno integer ,
+		 dname  varchar(15),
+		 location  varchar(20) ,
+		  CONSTRAINT  dept_dno_pk   Primary key(dno)   // table level constraint
+		);
+
+
+
+
+DROP:
+=====
+Drop Table table_name;
+
+
+ALTER
+======: 
+It is use to alter/modify structure of tables
+
+i. ADD  ii. MODIFY  iii. DROP
+
+ALTER with ADD , MODIFY , DROP
+-------------------------------:
+
+ALTER TABLE  Employees  ADD(dno integer);
+
+ALTER TABLE Employees MODIFY ename varchar(30);
+ 
+ALTER  TABLE Employees  DROP COLUMN  dno;
+
+ALTER  TABLE  Dept  DROP CONSTRAINT  dept_dno_pk;
+---------------------------------------------
+
+TRUNCATE  :
+
+TRUNCATE  TABLE Employees;  // ALL THE RECORDS FROM Employees table will be deleted permanently.
+
+
+
+
+DML:
+====
+It should use when ever we want  to deal with table's data or records
+
+INSERT , UPDATE  , DELETE
+
+Note: In mysql database , even DML commands also by default auto-commit
+
+
+INSERT:
+-------
+INSERT into  Table_Name Values(value1,value2,value3........);
+
+Ex: 
+
+INSERT into  Employees   values(101,'king',50000,null,'president','1990-02-13',null);
+
+INSERT into  Employees   values(102,'Scott',40000,500,'manager','1991-05-23',101);
+
+INSERT into  Employees   values(103,'Tom',35000,1000,'manager','1991-09-15',101);
+
+INSERT into  Employees   values(104,'Smith',30000,1500,'developer','1995-02-21',102);
+
+INSERT into  Employees   values(105,'Ford',25000,1000,'developer','1999-09-12',102);
+
+INSERT into  Employees   values(106,'Ravi',20000,3000,'tester','1996-02-1',103);
+
+INSERT into  Employees   values(107,'Satish',22000,2000,'tester','1998-04-22',103);
+
+INSERT into  Employees   values(108,'Adam',40000,NULL,'analyst','1992-03-7',101);
+
+INSERT into  Employees   values(109,'Raju',5000,500,'clerk','1994-01-09',101);
+
+
+------------------------------------------------------------------------------------------
+
+UPDATE:
+-------
+
+update Employees  set  salary = 24000 , doj = current_date  WHERE eid = 106;
+
+
+DELETE:
+--------
+begin transaction;
+
+delete  from Employees  ;
+
+rollback;  // it will undo delete and recover all records
+
+
+
+Note:
+-----------------------
+begin transaction;
+
+truncate table employees;
+
+rollback;   // it is useless for truncate
+----------------
+
+
+
+
+

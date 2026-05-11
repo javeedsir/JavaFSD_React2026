@@ -1,0 +1,295 @@
+mysql> select Count(ENAME)  NON  from Employees;
++-----+
+| NON |
++-----+
+|   9 |
++-----+
+1 row in set (0.01 sec)
+
+mysql> select Count(*)  as Records  from Employees;
++---------+
+| Records |
++---------+
+|       9 |
++---------+
+1 row in set (0.01 sec)
+
+mysql> select Ename, salary + comm  Total  from Employees;
++--------+-------+
+| Ename  | Total |
++--------+-------+
+| king   |  NULL |
+| Scott  | 40500 |
+| Tom    | 36000 |
+| Smith  | 31500 |
+| Ford   | 26000 |
+| Ravi   | 27000 |
+| Satish | 24000 |
+| Adam   |  NULL |
+| Raju   |  5500 |
++--------+-------+
+9 rows in set (0.00 sec)
+
+mysql> select Ename, salary + IFNULL(comm,0)  Total  from Employees;
++--------+-------+
+| Ename  | Total |
++--------+-------+
+| king   | 50000 |
+| Scott  | 40500 |
+| Tom    | 36000 |
+| Smith  | 31500 |
+| Ford   | 26000 |
+| Ravi   | 27000 |
+| Satish | 24000 |
+| Adam   | 40000 |
+| Raju   |  5500 |
++--------+-------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT  Count(Comm) HasComm  from Employees
+    -> ;
++---------+
+| HasComm |
++---------+
+|       7 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> SELECT  SUM(Salary)  SUM from Employees;
++--------+
+| SUM    |
++--------+
+| 271000 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT  SUM(Comm)  SUM from Employees;
++------+
+| SUM  |
++------+
+| 9500 |
++------+
+1 row in set (0.00 sec)
+
+mysql> SELECT  AVG(Salary)  SUM from Employees;
++------------+
+| SUM        |
++------------+
+| 30111.1111 |
++------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT  AVG(Salary)  AVG  from Employees;
++------------+
+| AVG        |
++------------+
+| 30111.1111 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT   TRUNCATE(AVG(Salary),2)   AVG  from Employees;
++----------+
+| AVG      |
++----------+
+| 30111.11 |
++----------+
+1 row in set (0.00 sec)
+
+
+mysql>  SELECT MIN(Salary)  minimum from Employees;
++---------+
+| minimum |
++---------+
+|    5000 |
++---------+
+1 row in set (0.00 sec)
+
+mysql>  SELECT MAX(Salary)  maximum from Employees;
++---------+
+| maximum |
++---------+
+|   50000 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select max(doj)  from Employees;
++------------+
+| max(doj)   |
++------------+
+| 2024-09-25 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select min(doj)  from Employees;
++------------+
+| min(doj)   |
++------------+
+| 1990-02-13 |
++------------+
+1 row in set (0.00 sec)
+
+
+
+mysql> select  sum(salary)  from Employees  Group By  eid;
++-------------+
+| sum(salary) |
++-------------+
+|       50000 |
+|       40000 |
+|       35000 |
+|       30000 |
+|       25000 |
+|       24000 |
+|       22000 |
+|       40000 |
+|        5000 |
++-------------+
+9 rows in set (0.00 sec)
+
+mysql> select eid,  sum(salary)  from Employees  Group By  eid;
++-----+-------------+
+| eid | sum(salary) |
++-----+-------------+
+| 101 |       50000 |
+| 102 |       40000 |
+| 103 |       35000 |
+| 104 |       30000 |
+| 105 |       25000 |
+| 106 |       24000 |
+| 107 |       22000 |
+| 108 |       40000 |
+| 109 |        5000 |
++-----+-------------+
+9 rows in set (0.00 sec)
+
+mysql> select eid, ename , sum(salary)  from Employees  Group By  eid;
++-----+--------+-------------+
+| eid | ename  | sum(salary) |
++-----+--------+-------------+
+| 101 | king   |       50000 |
+| 102 | Scott  |       40000 |
+| 103 | Tom    |       35000 |
+| 104 | Smith  |       30000 |
+| 105 | Ford   |       25000 |
+| 106 | Ravi   |       24000 |
+| 107 | Satish |       22000 |
+| 108 | Adam   |       40000 |
+| 109 | Raju   |        5000 |
++-----+--------+-------------+
+9 rows in set (0.00 sec)
+
+mysql> select    sum(salary)  from Employees  Group By  job;
++-------------+
+| sum(salary) |
++-------------+
+|       50000 |
+|       75000 |
+|       55000 |
+|       46000 |
+|       40000 |
+|        5000 |
++-------------+
+6 rows in set (0.00 sec)
+
+mysql> select   Job , sum(salary)  from Employees  Group By  job;
++-----------+-------------+
+| Job       | sum(salary) |
++-----------+-------------+
+| president |       50000 |
+| manager   |       75000 |
+| developer |       55000 |
+| tester    |       46000 |
+| analyst   |       40000 |
+| clerk     |        5000 |
++-----------+-------------+
+6 rows in set (0.00 sec)
+
+mysql> select   Ename , Job , sum(salary)  from Employees  Group By  job , ename;
++--------+-----------+-------------+
+| Ename  | Job       | sum(salary) |
++--------+-----------+-------------+
+| king   | president |       50000 |
+| Scott  | manager   |       40000 |
+| Tom    | manager   |       35000 |
+| Smith  | developer |       30000 |
+| Ford   | developer |       25000 |
+| Ravi   | tester    |       24000 |
+| Satish | tester    |       22000 |
+| Adam   | analyst   |       40000 |
+| Raju   | clerk     |        5000 |
++--------+-----------+-------------+
+9 rows in set (0.00 sec)
+
+mysql> select   Ename , Job , sum(salary)  from Employees  Group By  job ;
+ERROR 1055 (42000): Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'ems.Employees.ename' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+
+
+mysql> select   Ename , Job , sum(salary)  from Employees  Group By  job , ename;
+
+
+mysql> select   Job , sum(salary)  from Employees  where job != 'clerk'   Group by Job  Having  sum(salary) > 45000  order by sum(salary);
++-----------+-------------+
+| Job       | sum(salary) |
++-----------+-------------+
+| tester    |       46000 |
+| president |       50000 |
+| developer |       55000 |
+| manager   |       75000 |
++-----------+-------------+
+
+Step1: where clause
+mysql> select   Job , salary  from Employees  where job != 'clerk' ;
++-----------+--------+
+| Job       | salary |
++-----------+--------+
+| president |  50000 |
+| manager   |  40000 |
+| manager   |  35000 |
+| developer |  30000 |
+| developer |  25000 |
+| tester    |  24000 |
+| tester    |  22000 |
+| analyst   |  40000 |
++-----------+--------+
+
+
+step2: Group by and Group function
+
+mysql> select   Job , sum(salary)  from Employees  where job != 'clerk'   Group by Job;
++-----------+-------------+
+| Job       | sum(salary) |
++-----------+-------------+
+| president |       50000 |
+| manager   |       75000 |
+| developer |       55000 |
+| tester    |       46000 |
+| analyst   |       40000 |
++-----------+-------------+
+5 rows in set (0.00 sec)
+
+step3: Having clause
+
+mysql> select   Job , sum(salary)  from Employees  where job != 'clerk'   Group by Job  
+		Having  sum(salary) > 45000;
++-----------+-------------+
+| Job       | sum(salary) |
++-----------+-------------+
+| president |       50000 |
+| manager   |       75000 |
+| developer |       55000 |
+| tester    |       46000 |
++-----------+-------------+
+4 rows in set (0.00 sec)
+
+step4: order by clause
+
+
+mysql> select   Job , sum(salary)  from Employees  where job != 'clerk'   Group by Job  Having  sum(salary) > 45000  order by sum(salary);
++-----------+-------------+
+| Job       | sum(salary) |
++-----------+-------------+
+| tester    |       46000 |
+| president |       50000 |
+| developer |       55000 |
+| manager   |       75000 |
+
