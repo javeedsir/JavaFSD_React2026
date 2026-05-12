@@ -1,0 +1,81 @@
+JOINS:
+--------
+Cartesian Product:
+
+mysql> select  eid,ename,salary,job, d.dno,dname  from Employees  e , Dept  d;
+
+
+
+Equi Join:
+==========
+
+Below query show only matching records from both the tables.
+
+
+mysql> select  eid,ename,salary,job, d.dno,dname  from Employees  e , Dept  d   where    e.dno =  d.dno;
+
+Non-Equi Join:
+==========
+
+mysql> select  eid,ename,salary,job, d.dno,dname  from Employees  e , Dept  d   where  e.dno !=  d.dno;
+
+
+
+INNER JOIN
+-----------
+mysql> select  eid,ename,salary,job, d.dno,dname  from Employees  e  INNER JOIN  Dept  d   
+		WHERE    e.dno =  d.dno;
+
+
+(OR)
+
+mysql> select  eid,ename,salary,job, d.dno,dname  from Employees  e  INNER JOIN  Dept  d   
+		ON    e.dno =  d.dno;
+
+NATURAL JOIN
+-------------
+mysql> select  eid,ename,salary,job, d.dno,dname  from Employees  e  NATURAL JOIN  Dept  d ;
+
+
+OUTER JOINS:
+===============
+
+
+LEFT OUTER JOIN:
+-----------------
+mysql> select  eid,ename,salary,job, d.dno,dname  from Employees  e  LEFT OUTER JOIN  Dept  d    ON    e.dno =  d.dno  ;
+
+RIGHT OUTER JOIN:
+-----------------
+mysql> select  eid,ename,salary,job, d.dno,dname  from Employees  e  RIGHT OUTER JOIN  Dept  d    ON    e.dno =  d.dno  ;
+
+
+FULL OUTER JOIN:
+-----------------
+mysql> select  eid,ename,salary,job, d.dno,dname  from Employees  e  LEFT OUTER JOIN  Dept  d    ON    e.dno =  d.dno
+    -> UNION
+    -> select  eid,ename,salary,job, d.dno,dname  from Employees  e  RIGHT  OUTER JOIN  Dept  d    ON    e.dno =  d.dno  ;
+
+
+SELF JOINs:
+------------
+
+mysql> select  e.eid , e.ename, e.job , m.eid, m.ename,m.job    from  Employees e   ,   Employees m    where   e.mid = m.eid ;
+
+
+mysql> select  e.eid , e.mid ,  m.mid   from  Employees e   ,   Employees m    where   e.mid = m.eid ;
++-----+------+------+
+| eid | mid  | mid  |
++-----+------+------+
+| 102 |  101 | NULL |
+| 103 |  101 | NULL |
+| 104 |  102 |  101 |
+| 105 |  102 |  101 |
+| 106 |  103 |  101 |
+| 107 |  103 |  101 |
+| 108 |  101 | NULL |
+| 109 |  101 | NULL |
+| 110 |  101 | NULL |
++-----+------+------+
+
+mysql> select  e.eid , e.mid ,  m.mid    , e.ename , m.ename  from  Employees e   ,   Employees m    where   e.mid = m.eid ;

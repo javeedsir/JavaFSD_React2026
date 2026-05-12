@@ -1,0 +1,194 @@
+SUB QUERIES:
+-------------
+mysql> select eid,ename,salary,job  from  Employees where salary > (select salary from  Employees where ename = 'Tom') ;
+
+mysql> select eid,ename,salary,job  from  Employees where salary > (select salary from  Employees where ename = 'Tom')   order by job ;
+
+
+
+mysql> select eid,ename,salary,job  from  Employees where salary IN                                                        (select salary from  Employees where ename = 'Tom'  OR ename='Smith') ;
+
+
+mysql> select eid,ename,salary,job  from  Employees 
+                  where    salary > (select salary from  Employees where ename = 'Tom')
+    ->            AND      salary <    (select salary  from Employees where ename = 'King');
+
+
+MULTI ROW OPERATORS:
+----------------------
+IN
+=ANY  , <ANY ,  >ANY 
+<ALL , >ALL
+
+
+mysql> SELECT * from Employees  where   eid IN (101,102,105);
++-----+-------+--------+------+-----------+------------+------+------+
+| eid | ename | salary | comm | job       | doj        | mid  | dno  |
++-----+-------+--------+------+-----------+------------+------+------+
+| 101 | king  |  50000 | NULL | president | 1990-02-13 | NULL |   10 |
+| 102 | Scott |  40000 |  500 | manager   | 1991-05-23 |  101 |   10 |
+| 105 | Ford  |  25000 | 1000 | developer | 1999-09-12 |  102 |   10 |
++-----+-------+--------+------+-----------+------------+------+------+
+
+
+
+mysql> SELECT * from Employees  where   salary =ANY (select salary  from Employees where  ename IN('king','Smith','Tom'));
++-----+-------+--------+------+-----------+------------+------+------+
+| eid | ename | salary | comm | job       | doj        | mid  | dno  |
++-----+-------+--------+------+-----------+------------+------+------+
+| 101 | king  |  50000 | NULL | president | 1990-02-13 | NULL |   10 |
+| 103 | Tom   |  35000 | 1000 | manager   | 1991-09-15 |  101 |   20 |
+| 104 | Smith |  30000 | 1500 | developer | 1995-02-21 |  102 |   10 |
++-----+-------+--------+------+-----------+------------+------+------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * from Employees  where   salary <ANY (select salary  from Employees where  ename IN('king','Smith','Tom'));
++-----+--------+--------+------+-----------+------------+------+------+
+| eid | ename  | salary | comm | job       | doj        | mid  | dno  |
++-----+--------+--------+------+-----------+------------+------+------+
+| 102 | Scott  |  40000 |  500 | manager   | 1991-05-23 |  101 |   10 |
+| 103 | Tom    |  35000 | 1000 | manager   | 1991-09-15 |  101 |   20 |
+| 104 | Smith  |  30000 | 1500 | developer | 1995-02-21 |  102 |   10 |
+| 105 | Ford   |  25000 | 1000 | developer | 1999-09-12 |  102 |   10 |
+| 106 | Ravi   |  24000 | 3000 | tester    | 2024-09-25 |  103 |   20 |
+| 107 | Satish |  22000 | 2000 | tester    | 1998-04-22 |  103 |   20 |
+| 108 | Adam   |  40000 | NULL | analyst   | 1992-03-07 |  101 |   30 |
+| 109 | Raju   |   5000 |  500 | clerk     | 1994-01-09 |  101 |   40 |
+| 110 | Javeed |  25000 | NULL | Trainer   | 2024-09-27 |  101 | NULL |
++-----+--------+--------+------+-----------+------------+------+------+
+9 rows in set (0.01 sec)
+
+mysql> SELECT * from Employees  where   salary >ANY (select salary  from Employees where  ename IN('king','Smith','Tom'));
++-----+-------+--------+------+-----------+------------+------+------+
+| eid | ename | salary | comm | job       | doj        | mid  | dno  |
++-----+-------+--------+------+-----------+------------+------+------+
+| 101 | king  |  50000 | NULL | president | 1990-02-13 | NULL |   10 |
+| 102 | Scott |  40000 |  500 | manager   | 1991-05-23 |  101 |   10 |
+| 103 | Tom   |  35000 | 1000 | manager   | 1991-09-15 |  101 |   20 |
+| 108 | Adam  |  40000 | NULL | analyst   | 1992-03-07 |  101 |   30 |
++-----+-------+--------+------+-----------+------------+------+------+
+4 rows in set (0.00 sec)
+
+
+
+mysql> SELECT * from Employees  where   salary =ALL (select salary  from Employees where  ename IN('king','Smith','Tom'));
+Empty set (0.00 sec)
+
+mysql> SELECT * from Employees  where   salary <ALL (select salary  from Employees where  ename IN('king','Smith','Tom'));
++-----+--------+--------+------+-----------+------------+------+------+
+| eid | ename  | salary | comm | job       | doj        | mid  | dno  |
++-----+--------+--------+------+-----------+------------+------+------+
+| 105 | Ford   |  25000 | 1000 | developer | 1999-09-12 |  102 |   10 |
+| 106 | Ravi   |  24000 | 3000 | tester    | 2024-09-25 |  103 |   20 |
+| 107 | Satish |  22000 | 2000 | tester    | 1998-04-22 |  103 |   20 |
+| 109 | Raju   |   5000 |  500 | clerk     | 1994-01-09 |  101 |   40 |
+| 110 | Javeed |  25000 | NULL | Trainer   | 2024-09-27 |  101 | NULL |
++-----+--------+--------+------+-----------+------------+------+------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * from Employees  where   salary >ALL (select salary  from Employees where  ename IN('king','Smith','Tom'));
+Empty set (0.00 sec)
+
+mysql> SELECT * from Employees  where   salary >ALL (select salary  from Employees where  ename IN('Adam','Smith','Tom'));
++-----+-------+--------+------+-----------+------------+------+------+
+| eid | ename | salary | comm | job       | doj        | mid  | dno  |
++-----+-------+--------+------+-----------+------------+------+------+
+| 101 | king  |  50000 | NULL | president | 1990-02-13 | NULL |   10 |
++-----+-------+--------+------+-----------+------------+------+------+
+1 row in set (0.00 sec)
+
+mysql> select  job  from Employees  group by job   having  sum(salary)  < (select salary from Employees where ename = 'king');
++---------+
+| job     |
++---------+
+| tester  |
+| analyst |
+| clerk   |
+| Trainer |
++---------+
+4 rows in set (0.00 sec)
+
+mysql> select  job  from Employees  group by job   having  sum(salary)  >  (select salary from Employees where ename = 'king');
++-----------+
+| job       |
++-----------+
+| manager   |
+| developer |
++-----------+
+
+
+mysql> select * from Employees   where  dno  = (select  dno  from  dept  where location = 'Banglore');
++-----+-------+--------+------+-----------+------------+------+------+
+| eid | ename | salary | comm | job       | doj        | mid  | dno  |
++-----+-------+--------+------+-----------+------------+------+------+
+| 101 | king  |  50000 | NULL | president | 1990-02-13 | NULL |   10 |
+| 102 | Scott |  40000 |  500 | manager   | 1991-05-23 |  101 |   10 |
+| 104 | Smith |  30000 | 1500 | developer | 1995-02-21 |  102 |   10 |
+| 105 | Ford  |  25000 | 1000 | developer | 1999-09-12 |  102 |   10 |
++-----+-------+--------+------+-----------+------------+------+------+
+4 rows in set (0.00 sec)
+
+mysql> select * from Employees   where  dno  =                                                                     (select  dno  from  dept  where  dname  =                                                                                        (select dname  from dept where  location='Banglore'));
++-----+-------+--------+------+-----------+------------+------+------+
+| eid | ename | salary | comm | job       | doj        | mid  | dno  |
++-----+-------+--------+------+-----------+------------+------+------+
+| 101 | king  |  50000 | NULL | president | 1990-02-13 | NULL |   10 |
+| 102 | Scott |  40000 |  500 | manager   | 1991-05-23 |  101 |   10 |
+| 104 | Smith |  30000 | 1500 | developer | 1995-02-21 |  102 |   10 |
+| 105 | Ford  |  25000 | 1000 | developer | 1999-09-12 |  102 |   10 |
++-----+-------+--------+------+-----------+------------+------+------+
+
+
+SUB QUERY TO CREATE COPY OF TABLES
+-------------------------------------
+
+mysql> CREATE TABLE  dept_one  AS  select  * from dept where  1 = 2;
+
+
+mysql> CREATE TABLE  Emp   AS  select  eid,ename,salary,job   from Employees;
+Query OK, 10 rows affected (0.07 sec)
+Records: 10  Duplicates: 0  Warnings: 0
+
+mysql> update  Employees  SET  comm = IFNULL(comm,0) + 100  where  dno = (select  dno from Dept  where location = 'Hyderabad');
+
+
+mysql> delete from Employees  where    dno  = (select dno from dept  where location = 'Chennai');
+
+start transaction;
+
+
+INSERT ;
+UPDATE ;
+
+SAVEPOINT  SP1;
+
+DELETE;
+SELECT;
+INSERT;	
+
+SAVEPOINT SP2;
+
+DELETE;
+INSERT
+
+commit  sp1;  or rollback sp2;
+
+
+
+
+SUB QUERY in Project/Select List :
+-----------------------------------
+
+mysql> select  ename,  salary ,  (select sum(salary) from Employees) as Total    from Employees ;
+
+mysql> select  ename,  salary ,  (select sum(salary) from Employees) - salary   as Total    from Employees ;
+
+
+
+SUB QUERY instead of Table Name:
+----------------------------------
+mysql> select  eid,ename,salary,job , dno   from   (select  eid,ename,salary , job ,dno from Employees )  as  E1;
+
+
+
+
