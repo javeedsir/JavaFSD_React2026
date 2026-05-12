@@ -1,0 +1,113 @@
+java.sql;
+
+Interface:
+--------
+Driver
+Connection
+Statement
+PreparedStatement
+CallableStatement
+ResultSet
+
+
+Class: (Utility classes not implementation classes)
+=====
+DriverManager
+Date
+
+
+JDBC Steps:
+-----------
+
+1. Import package / add jar file to the project 
+2. Register/Load  Driver class to the DriverManager
+3. Get the DB Connection
+4. Create any Statement  and execute query
+  i. Statement  ii. PreparedStatement  iii. CallableStatement
+
+
+	NOTE:  select query --->  ResultSet  executeQuery();
+		non-select query (DML) -->   int  executeUpdate();
+
+5.close DB connection
+
+
+
+int x = 99;
+
+	
+public  int  add(int a,int b){
+
+return a+b;
+
+}
+
+
+
+Data base:
+-----------
+create  database  mydb;
+use mydb;
+show tables;
+
+
+CREATE TABLE Employees (Eid integer(3) primary key , EName varchar(20),Salary double);
+
+
+Statement:
+
+Statement interface is used for static queries.
+
+STATIC QUERIES
+--------------
+delete from Employees;
+select * from Employees;
+
+DDL:
+create , alter  , drop , truncate   are static queries
+
+
+DYNAMIC QUERIES:
+----------------
+PreparedStatement interface should be used for dynamic queries
+
+Note: PreparedStatement can also  execute static queries.
+DML :
+insert into Employees values(1,'king',6000);
+update  Employees set salary = 7000 where eid = 1;
+delete from Employees where eid =1;
+
+
+
+SQL/Java  CRUD Operations:
+ 
+Create  ---> insert
+Retrieve  ---> select
+Update   -----> update
+Delete     ----> delete
+
+
+
+PLSQL:
+---------
+
+function / procedure  f1(){
+
+	insert;
+	update;
+	delete;
+
+
+}
+
+
+
+CallableStatement cstmt =  prepareCall("{call   f1()}");
+
+		cstmt.execute();
+
+
+
+
+
+
