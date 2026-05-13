@@ -1,0 +1,22 @@
+
+
+
+Patterns:
+
+[A-Z]  : any one character in upper case
+
+[a-z] : any one character in lower case
+
+[0-9] : any one digit
+
+[A-Za-z0-9] : any one character either in upper case or lower case or digit
+
+[A-Z][a-z]:  any two characters where 1st should be upper and 2nd one should be lower case letter
+
+[A-Z]{3} :  any 3 characters in upper case only   Ex:  TOM , RAM , SAM , DAM
+
+[a-f]  : between a to f only
+
+[6-9]  : between 6  to 9
+
+[@#$]   : any one special character 

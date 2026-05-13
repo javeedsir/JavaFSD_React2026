@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+            function  f1(){
+
+                alert('welcome to HTML forms');
+            }
+
+
+    </script>
+
+
+</head>
+<body>
+
+        <form action="hello.html"  method="post">
+
+
+           <label >USERNAME: </label>  <input type="text" pattern="[A-Z][a-z]{3}"  name="uname" value="tom" />  <br>
+           <label>PASSWORD:  </label>  <input type="password" name="pwd" required  />  <br>
+
+           <label>EMAIL : </label> <input type="email"  name="email" required /> <br>
+
+           <label >DOB : </label>  <input type="date" name="dob" /> <br>
+
+           <label >MNO: </label>   <input type="number" name="mno" /> <br>
+
+           Gender :  <input type="radio" name="gender" value="Male" > Male   <input type="radio" name="gender" value="Female" > Female   <br>  
+            
+            Course: <input type="checkbox" name="java" value="Java" checked> Java 
+                    <input type="checkbox" name="sql" value="1122"> SQL 
+                    <input type="checkbox" name="python" value="py"> Python    <br>
+
+              Upload Docs: <input type="file" name="mydoc"  >  <br>
+              <label for="volume">Volume (0-100):</label>
+            <input type="range" id="volume" name="volume" min="0" max="100" value="50" step="5">
+         <br>
+
+            Country:  <select name="country" >
+                        <option value=""  selected>--select country--</option>
+                       <option value="India" >India</option>
+                       <option value="Aus">Australia</option>
+                       <option value="USA">America</option>
+                       <option value="UAE">Saudi Arabia</option>
+                       <option value="101">China</option>
+                        </select>
+
+                            <br> <br>
+
+               Remarks: <textarea  rows="5"  cols="50" name="remark" ></textarea>     <br>        
+            <input type="button" onclick="f1()" value="Button" /> 
+
+            <button type="submit" > Submit </button> 
+
+            <button type="reset" > Clean </button>
+
+
+          
+
+        </form>
+
+
+
+    
+</body>
+</html>
