@@ -1,0 +1,50 @@
+
+
+body{
+
+    background-color: yellow;
+
+
+}
+
+
+input[type='text']{
+
+
+    color:red;
+
+}
+
+#myid{
+
+    background-color: blue;
+}
+
+
+.cls1{
+
+    background-color: pink;
+
+        
+}
+
+
+
+
+
+
+
+div {
+    width: 300px;
+    border: 15px solid green;
+    padding: 50px;
+    margin: 20px;
+  }
+
+
+
+
+
+
+
+

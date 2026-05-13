@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+        Enter Your Name: <input type="text"  id="name"> <br>
+           <button type="button" onclick="handleClick()">Click</button> <br>
+
+           <h1 id="demo">  </h1>
+
+           <h2 id="demo2"></h2>
+
+
+    <script>
+
+            function  handleClick(){
+
+
+                    if(typeof Storage !== undefined){
+
+
+                    let name =        document.getElementById("name").value ;
+
+                        localStorage.setItem("name",name);
+                        localStorage.setItem("city","hyderabad");
+
+                        document.getElementById("demo").innerHTML = "Welcome "+localStorage.getItem("name") +" to the "+ localStorage.getItem("city");
+
+                         sessionStorage.setItem("name",name);
+                         sessionStorage.setItem("country","India");
+
+                         document.getElementById("demo2").innerHTML = "Welcome "+sessionStorage.getItem("name") + " to the "+sessionStorage.getItem("country");
+                         
+                         
+
+
+                    }
+
+                    else{
+
+                        alert("Sorry! your browser doesn't support Web Storage");
+                    }
+
+
+            }
+
+
+
+
+    </script>
+
+
+    
+</body>
+</html>
