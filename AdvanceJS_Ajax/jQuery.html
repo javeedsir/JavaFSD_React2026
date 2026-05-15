@@ -1,0 +1,30 @@
+
+<html lang="en">
+
+<head>
+    <title>My First jQuery Example</title>
+
+     <!-- Include jQuery from CDN Link --> 
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+    </script>
+</head>
+
+<body>
+    <p id="message">Hello, World!</p>
+    
+    <button id="hideButton">
+        Hide Message
+    </button>
+
+    
+    <script>
+        $(document).ready(function() {
+            $('#hideButton').click(function() {
+                $('#message').hide();
+            })
+        });
+    </script>
+</body>
+
+</html>
