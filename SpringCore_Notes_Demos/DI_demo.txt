@@ -1,0 +1,69 @@
+
+
+Lab Time: 35 mins
+
+Practice Maven commands using mvn command
+
+Revise
+---------
+Design Pattern 
+Factory DP 
+Singleton DP
+
+
+Entities concept with Dependency Injection
+
+
+
+
+class Passanger implments IPass{
+
+
+
+}
+
+
+class  Bus{
+
+private int bno;
+private Passanger pass;
+
+public Bus(int bno, Passanger pass){
+	this.bno = bno;
+	this.pass = pass;
+
+}
+
+
+public Bus(int bno, IPass pass){
+	this.bno = bno;
+	this.pass = pass;
+
+}
+
+
+}
+
+	Passanger p = new Passanger();
+
+  Bus  bus = new Bus(101, p );  // constructor DI
+
+
+	Bus  bus = new Bus();
+
+		bus.setBno(101);
+		bus.setPass(new Passanger());  // setter method DI
+
+
+
+IPass ip =	new Passanger();
+
+
+	Bus  bus = new Bus(101,ip); // Interface oriented DI
+
+
+
+
+
+
+
