@@ -1,0 +1,126 @@
+JSP : Java Server Pages
+
+JSP: It is used to design/develop  dynamic web pages.
+
+HTML: It is used to design/develop  static web pages.
+
+JSP Advantages:
+
+In  Java Server Pages , we can write any HTML code and also any Java code.
+
+hello.jsp ----> web server ----> Hello_Servlet
+
+
+Servlet :  Java code(use HTML)
+
+JSP:  HTML (use java code) 
+
+
+JSP Elements/Tags:
+-----------------
+
+1.JSP Scriplet   <%   java code  %>
+2.JSP Declaration  <%!   java code %>
+3.JSP Directives  <%@ page  %>
+demo.jsp --> jsp compiler---> Demo_Servlet.java(Auto Generated Servlet) 
+				 ---> javac---> Demo_Servlet.class ----> execute
+
+
+4. JSP Expression  <%=  java expression%>
+5. EL Expression  ${username}
+	
+Scope variables:
+page  // set or get data with in a page  
+request // set or get data till request scope
+session  // set or get data till session is available
+application  // set or get data globally
+
+
+demo.jsp file 
+
+JSP Container/JSP Engine
+
+Demo_Servlet.java 
+// auto generated servlet
+
+import java.util.*;
+import java.io.*;
+public  class  Demo_Servlet  extends HttpServlet{
+
+
+
+	public void m1(){
+		
+		
+	}
+	
+		int eid;
+   static  String ename;
+ 
+
+
+
+	jspInit(){
+
+
+	}
+
+	jspService(HttpServletRequest request,HttpServletResponse response){
+
+
+		JspWriter  out;
+		HttpSession sesion;
+		ServletContext application;
+		ServletConfig config;
+ 		PageContext page;
+		Exception exception;
+
+		response.setContentType("text/html");
+		
+		out.print("<h1>Welcome to JSP Page</h1>");
+
+		out.print();
+
+		 String str = new String("javeed");
+    
+   		  int x = 99;
+
+	out.print(str);
+     	out.print("X value is : "+x);
+
+	
+		session.setAttribute("city","Mumbai");
+  		
+  		out.print(session.getAttribute("city"));
+ 
+
+		out.print( session.getAttribute("city"));
+
+
+
+		List  list = new ArrayList();
+
+Employee emp = (Employee)   session.getAttribute("e1");
+
+	}
+
+
+	jspDestroy(){
+
+
+	}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+

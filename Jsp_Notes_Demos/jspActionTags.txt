@@ -1,0 +1,6 @@
+Standard Action Tags
+** <jsp:include>**: Injects the output of another file (like a header or footer) into the current JSP page at runtime.
+** <jsp:forward>**: Forwards the entire request and response to another resource (such as a different JSP page or a Servlet).
+** <jsp:useBean>**: Creates, locates, or retrieves a JavaBean instance so you can use it in your page.
+** <jsp:setProperty>**: Sets the value of a property (or properties) within a designated JavaBean.
+** <jsp:getProperty>**: Retrieves the value of a JavaBean property and converts it into a string to be displayed.
