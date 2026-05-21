@@ -1,0 +1,82 @@
+package com.wipro.spring.jdbc.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.wipro.spring.jdbc.dao.EmployeeDaoImp;
+import com.wipro.spring.jdbc.dao.IEmployeeDao;
+import com.wipro.spring.jdbc.exceptions.EmployeeNotFoundException;
+import com.wipro.spring.jdbc.pojo.Employee;
+
+@Service
+public class EmployeeServiceImp implements IEmployeeService {
+
+	private IEmployeeDao dao;
+
+	public EmployeeServiceImp() {
+
+		dao = new EmployeeDaoImp();
+
+	}
+
+	@Override
+	public int addEmp(Employee emp) {
+
+		return dao.addEmp(emp);
+	}
+
+	@Override
+	public List<Employee> getAllEmployees() {
+
+		return dao.getAllEmployees();
+	}
+
+	@Override
+	public int updateEmployee(Employee emp) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static boolean validateEmp(Employee emp) {
+
+		boolean flag = false;
+
+		if (emp.getEid() > 99 && emp.getEname().length() > 4 && emp.getSalary() > 10000) {
+
+			flag = true;
+
+		}
+
+		return flag;
+
+	}
+
+	@Override
+	public int deleteByEid(int eid) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Employee getByEid(int eid) {
+
+		Employee emp = dao.getByEid(eid);
+
+		if (emp == null) {
+
+			try {
+
+				throw new EmployeeNotFoundException();
+
+			} catch (Exception e) {
+
+				System.err.println("Employee Not Found Eid " + eid);
+			}
+
+		}
+		return emp;
+
+	}
+
+}
