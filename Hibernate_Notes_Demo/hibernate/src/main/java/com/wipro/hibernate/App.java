@@ -22,15 +22,19 @@ public class App {
 
 		Transaction tx = session.beginTransaction();
 
-		/*
-		 * Employee emp = new Employee(111, "Javeed", 80000);
-		 * 
-		 * Serializable ser = session.save(emp);
-		 * 
-		 * System.out.println(ser.toString() + " record inserted");
-		 */
 		
-			Employee emp =		session.get(Employee.class, 111);
+		  Employee emp = new Employee(111, "Javeed", 80000);
+		  
+		  //Serializable ser = session.save(emp);
+		  
+		 // System.out.println(ser.toString() + " record inserted");
+		  
+		  
+		  		//	session.saveOrUpdate(emp);
+		  			
+		  			session.persist(emp);
+		
+			//Employee emp =		session.get(Employee.class, 111);
 			
 			/*
 			 * emp.setSalary(99000);
@@ -38,7 +42,7 @@ public class App {
 			 * session.save(emp);
 			 */
 					
-					session.delete(emp);
+				//	session.delete(emp);
 					
 		
 
