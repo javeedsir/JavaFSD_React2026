@@ -42,4 +42,16 @@ public class EmployeeServiceImp implements IEmployeeService {
 		return repo.findAll();
 	}
 
+	@Override
+	public Employee getByEname(String ename) {
+		return  repo.findByEname(ename);
+	}
+
+	@Override
+	public List<Employee> getBySalaryGT(double sal) {
+		//return   repo.findBySalaryGreaterThan(sal);
+		
+		return repo.findBySalaryGreaterThanOrderByEnameAsc(sal);
+	}
+
 }

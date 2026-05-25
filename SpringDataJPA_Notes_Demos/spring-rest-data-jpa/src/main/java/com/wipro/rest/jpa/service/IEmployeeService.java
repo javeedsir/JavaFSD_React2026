@@ -18,6 +18,10 @@ public interface IEmployeeService {
 		public  List<Employee>    getAllEmployees();
 		
 		
+			public Employee  getByEname(String ename);
+		
+			public List<Employee>  getBySalaryGT(double sal);
+		
 	
 
 }

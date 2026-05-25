@@ -1,7 +1,9 @@
 Assignment Practice:
 
-Consider any one Entity from case study
-Create Spring Data JPA 
+Domain options: 1. Bank 2. Health care 3. E-commerce
+
+Consider any 4 Entity from  above case study
+Create Spring Data JPA project with all required packages
 
 CRUD Operation
 INSERT
@@ -13,6 +15,19 @@ findBY any property
 
 findBy any property GreaterThan or LessThan
 
+And other finder methods options randomly
+
+
+
+
+
+
+
+
+
+
+
+Ignore
 Revise HQL/JPQL concepts
 
 Write custom queries in above  Repository
