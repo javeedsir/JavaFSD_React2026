@@ -69,4 +69,9 @@ public class EmployeeServiceImp implements IEmployeeService {
 		return repo.updateSalary(salary, eid);
 	}
 
+	@Override
+	public double sumOfSalary() {
+			return repo.sumOfSalary();
+	}
+
 }

@@ -95,4 +95,17 @@ class EmployeeRestController {
 		return count+ "record updated";
 	}
 
+	
+	
+	@GetMapping("/sumofsalary")
+	public String  sumOfSalary() {
+		
+		return   "Sum of Salaries : "+service.sumOfSalary();
+		
+	}
+	
+	
+	
+	
+	
 }

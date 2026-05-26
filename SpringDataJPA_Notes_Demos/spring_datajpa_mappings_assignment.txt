@@ -1,0 +1,19 @@
+Revise:
+
+Spring Data JPA Mappings Project
+OneToOne
+OneToMany or ManyToOne 
+ManyToMany
+
+
+----------------------------
+Assignment:
+Create Spring Boot Project and add following dependencies
+spring web , spring data jpa , mysql driver
+
+Choose any entities from Project Case Study and perform  following mappings in above project
+OneToOne
+OneToMany or ManyToOne 
+ManyToMany
+
+Note: If you have done same in domain based(Bank,Health care, Ecommerce) assignments then reuse the code to convert into       spring data JPA mappings

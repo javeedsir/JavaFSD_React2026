@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.NativeQuery;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -31,7 +32,20 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
 	// Native query or SQL query
 
-	@Query(value = "select * from Emp_Table", nativeQuery = true)
+	//@Query(value = "select * from Employees", nativeQuery = true)
+	
+	@NativeQuery("select * from Employees")
 	public List<Employee> getAllBySQL();
+	
+	
+	
+	public double  sumOfSalary();
+
+	
+	
+	
+	
+	
+	
 
 }

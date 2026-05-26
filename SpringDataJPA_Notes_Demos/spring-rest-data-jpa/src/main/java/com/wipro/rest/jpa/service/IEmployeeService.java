@@ -27,7 +27,7 @@ public interface IEmployeeService {
 			
 			public int  updateSalary(double salary , int eid);
 			
-			
+			public double  sumOfSalary();
 			
 			
 			
