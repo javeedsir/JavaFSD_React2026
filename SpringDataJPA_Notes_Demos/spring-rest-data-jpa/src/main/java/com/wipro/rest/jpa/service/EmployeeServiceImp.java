@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import com.wipro.rest.jpa.entity.Employee;
 import com.wipro.rest.jpa.repository.EmployeeRepository;
 
+import jakarta.transaction.Transactional;
+
+@Transactional
 @Service
 public class EmployeeServiceImp implements IEmployeeService {
 
@@ -52,6 +55,18 @@ public class EmployeeServiceImp implements IEmployeeService {
 		//return   repo.findBySalaryGreaterThan(sal);
 		
 		return repo.findBySalaryGreaterThanOrderByEnameAsc(sal);
+	}
+
+	@Override
+	public List<Employee> findAllBySorted() {
+		
+		return repo.findAllBySorted();
+	}
+
+	@Override
+	public int updateSalary(double salary, int eid) {
+		
+		return repo.updateSalary(salary, eid);
 	}
 
 }

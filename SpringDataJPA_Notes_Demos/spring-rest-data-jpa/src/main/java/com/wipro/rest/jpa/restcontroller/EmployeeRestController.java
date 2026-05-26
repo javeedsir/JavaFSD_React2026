@@ -74,11 +74,25 @@ class EmployeeRestController {
 	}
 
 	@GetMapping("/getbysalarygt/{sal}")
-	public List<Employee> getBySalaryGT(@PathVariable double sal){
+	public List<Employee> getBySalaryGT(@PathVariable double sal) {
+
+		return service.getBySalaryGT(sal);
+
+	}
+
+	@GetMapping(value = "/getallsorted", produces = "application/json")
+	public List<Employee> getAllEmployeesSorted() {
+
+		return service.findAllBySorted();
+
+	}
+
+	@PutMapping("/updatesalary/{salary}/{eid}")
+	public String updateSalary(@PathVariable  double salary,@PathVariable int eid) {
+
+		int count = service.updateSalary(salary, eid);
 		
-			return service.getBySalaryGT(sal);
-		
-		
+		return count+ "record updated";
 	}
 
 }

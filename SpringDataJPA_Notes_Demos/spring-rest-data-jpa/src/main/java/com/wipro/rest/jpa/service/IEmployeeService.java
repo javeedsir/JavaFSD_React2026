@@ -21,6 +21,22 @@ public interface IEmployeeService {
 			public Employee  getByEname(String ename);
 		
 			public List<Employee>  getBySalaryGT(double sal);
+			
+			public  List<Employee>  findAllBySorted();
+			
+			
+			public int  updateSalary(double salary , int eid);
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		
 	
 
