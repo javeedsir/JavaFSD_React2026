@@ -1,0 +1,78 @@
+Entities: com.wipro.app.entity
+
+@Entity
+public  Address {          ---->  Address Table
+		
+	@Id
+	int dno;
+
+	String city;
+}
+
+
+
+@Entity
+public   Employee {       --------->  Employee Table
+
+	@Id
+	int eid;
+	String ename;
+
+	@OneToOne
+	Address addres;
+
+
+}
+
+---------------------------------------------
+
+post mapping:
+
+	{
+
+	eid:101,
+	ename:"javeed",
+	
+	address: {
+			dno:22,
+			city:"Pune"
+		}
+
+
+	}
+
+
+
+
+
+POJO / DTOs
+
+--------------
+com.wipro.app.dto
+
+class AddressDTO {
+	
+	int dno;
+	String city;
+	
+}
+
+
+
+class EmployeeDTO  {
+
+	int eid;
+	String ename;
+	Address address;
+
+
+
+}
+
+
+
+
+
+
+
+
