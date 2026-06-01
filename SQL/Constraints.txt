@@ -24,10 +24,11 @@ CREATE TABLE  Subject  (
 			subId  int  unique,
 			subName varchar(25) NOT NULL  ,
 			Marks  int  ,
-		sid  int unsigned   references Student(sid)   ON DELETE SET NULL/ON DELETE CASCADE
+		sid  int unsigned   references Student(sid)  
 
 			);
 
+ ON DELETE SET NULL/ON DELETE CASCADE
 ------------------------------------------------------
 
 
@@ -37,7 +38,7 @@ CREATE TABLE  Subject  (
 			Marks  int ,
 			sid  int unsigned   ,
 
-CONSTRAINT  subject_sid_fk  FOREIGN KEY(sid)  REFERENCES   Student(sid)
+CONSTRAINT  subject_sid_fk  FOREIGN KEY(sid)  REFERENCES   Student(sid) ON DELETE CASCADE 
 
 			);
 

@@ -1,0 +1,30 @@
+
+
+<h1>HELLO</h1>
+
+
+<body id="bid">  
+
+	<p>hello friends</p>
+
+	<h2>welcome</h2>
+
+</body>
+
+
+
+
+document.getElementById("bi").innerHTML = "<h2>welcome</h2>"
+
+
+const  f1 =  ()=>{
+
+	console.log("hello");
+	}
+
+	f1 = ()=>{ console.log("bye")}
+
+
+
+f1();
+

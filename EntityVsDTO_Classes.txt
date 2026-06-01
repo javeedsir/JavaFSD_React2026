@@ -63,7 +63,7 @@ class EmployeeDTO  {
 
 	int eid;
 	String ename;
-	Address address;
+	AddressDTO address;
 
 
 
