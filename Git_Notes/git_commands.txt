@@ -95,7 +95,7 @@ Note: Always be in master branch before any merge
 $git  merge  branch_1
 
 
-Now , Remember when ever we don merge , it will not reflect to the origin/remote until and unless 
+Now , Remember when ever we do merge , it will not reflect to the origin/remote until and unless 
 i. pull request is rise  (any developer or Team Lead can do this)
 ii. merge request is confirmed (Repository owner/Product owner / senior person)
 iii. comment is done  (its mandatory)

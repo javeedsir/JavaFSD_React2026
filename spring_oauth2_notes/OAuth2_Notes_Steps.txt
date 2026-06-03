@@ -32,7 +32,6 @@ Ex: application.properties file.
 
 #GitHub Login using OAuth2
 
-spring.security.oauth2.client.registration.github.client-id=  <copy client id here>
-
+spring.security.oauth2.client.registration.github.client-id=  <co	
 spring.security.oauth2.client.registration.github.client-secret= <copy client secret here>
 

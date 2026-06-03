@@ -1,30 +1,17 @@
 
+Revise and Practice
 
-<h1>HELLO</h1>
+REST API basics
+REST Http Methods
+Annotations
 
-
-<body id="bid">  
-
-	<p>hello friends</p>
-
-	<h2>welcome</h2>
-
-</body>
+Spring Data JPA Basics
+Spring Data JPA steps to create Entity and Repository
 
 
+Assignment:
 
-
-document.getElementById("bi").innerHTML = "<h2>welcome</h2>"
-
-
-const  f1 =  ()=>{
-
-	console.log("hello");
-	}
-
-	f1 = ()=>{ console.log("bye")}
-
-
-
-f1();
+Create SpringBoot and Spring Data JPA project using MySQL 
+Use Layered Architecture
+Create RestController for REST APIs GET,POST ,PUT , DELETE methods
 
