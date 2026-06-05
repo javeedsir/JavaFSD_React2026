@@ -1,0 +1,71 @@
+xml/jsx
+
+	<MyButton  color="red">
+
+	 <Message>Hello</Message>
+
+	</MyButton>
+
+HTML:
+
+Tags/Elements
+
+
+	<BODY  bgcolor='pink'>
+
+		<h1>Welcome</h1>
+
+	</body> 
+
+block elements
+
+body , table, html , div , ol , ul ....
+
+	
+
+class Demo 
+{
+
+
+
+	display(){
+
+
+	}
+
+
+
+}
+
+--------------------------
+
+const[count,setCount]  =  useState(0);
+
+
+
+
+this.state ={
+
+
+		count : 0
+}
+
+
+setCount(x){
+
+
+	this.state.count = x ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
