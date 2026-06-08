@@ -1,0 +1,7 @@
+
+Differences between Controlled and Uncontrolled Components:
+Controlled Components                     	         Uncontrolled Components
+React manages the state of form elements.	         DOM manages the state using useRef hook.
+Uses onChange event handler for state updates.	         No specific event handlers; DOM directly handles changes.
+State updates reset form elements easily.	         Resetting form values is more complex.
+Preferred when using React for state management.	 Used when not using React or when direct DOM control is preferred.

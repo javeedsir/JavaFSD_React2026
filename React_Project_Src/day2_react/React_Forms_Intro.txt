@@ -1,0 +1,504 @@
+
+React Forms Introduction
+=============================
+Forms are an integral part of any modern web application.
+
+ It allows the users to interact with the application as well as
+ gather information from the users. 
+
+Forms can perform many tasks that depend on the nature of 
+your business requirements and logic such as authentication
+ of the user, adding user, searching, filtering, booking, ordering, etc.
+
+ A form can contain text fields, buttons, checkbox, radio button, etc.
+
+Creating Form
+------------
+React offers a stateful, reactive approach to build a form. 
+
+The component rather than the DOM usually handles the React form.
+
+ In React, the form is usually implemented by using controlled components.
+
+There are mainly two types of form input in React.
+
+1)controlled component
+2)UnControlled component
+
+
+1)Controlled component
+------------------------
+ In the controlled component, the input form element is handled by the
+ component rather than the DOM. Here, the mutable state is kept in the 
+state property and will be updated only with setState() method.
+
+Controlled components have functions that govern the data passing
+ into them on every onChange event, rather than grabbing the data 
+only once, e.g., when you click a submit button. This data is then 
+saved to state and updated with setState() method. This makes component
+ have better control over the form elements and data.
+
+ex:1
+----
+App.js
+------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+        render() {
+                return (
+                        <div>
+                           <form>
+                            <h2>Controlled by React</h2>
+                            <input type="text"/>
+                            </form>
+                        </div>
+                )
+        }
+}
+
+index.js
+---------
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from "./App";
+
+//render the component to index.html
+ReactDOM.render(<App />,document.getElementById("root"));
+
+index.html
+---------
+-
+-
+-
+
+   <div id="root"></div>
+    <h2>Not Controlled by React</h2>
+    <input type="text"/>
+-
+-
+-
+
+ex:2
+-----
+App.js
+-------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+        render() {
+                return (
+                        <div>
+                           <form>
+                            <h2>Controlled by React</h2>
+                            <input type="text" value="edx"/>
+                            </form>
+                        </div>
+                )
+        }
+}
+
+index.js
+---------
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from "./App";
+
+//render the component to index.html
+ReactDOM.render(<App />,document.getElementById("root"));
+
+
+index.html
+-----------
+-
+-
+-
+ <div id="root"></div>
+    <h2>Not Controlled by React</h2>
+    <input type="text" value="Global"/>
+-
+-
+-
+
+Note:
+------
+In above program we will get warning for controlled component.
+
+In above example we can't edit/delete the values because it 
+is controlled by react.
+
+To overcome this above program we can use defaultValue attribute
+inside App.js file.
+
+
+App.js
+---------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+        render() {
+                return (
+                        <div>
+                           <form>
+                            <h2>Controlled by React</h2>
+                            <input type="text" defaultValue="edx"/>
+                            </form>
+                        </div>
+                )
+        }
+}
+
+Setting the values using state
+----------------------------
+App.js
+-------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+        state={
+                value:"GlobalEdx"
+        }
+        render() {
+                return (
+                        <div>
+                           <form>
+                            <h2>Controlled by React</h2>
+                            <input type="text" value={this.state.value}/>
+                            </form>
+                        </div>
+                )
+        }
+}
+
+index.js
+----------
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from "./App";
+
+//render the component to index.html
+ReactDOM.render(<App />,document.getElementById("root"));
+
+index.html
+---------
+-
+-
+-
+<div id="root"></div>
+-
+-
+Note:
+--------
+In above program we will get warning message.
+
+To remove that warning message we can use defaultValue attribute or 
+onChange attribute.
+
+ex:
+App.js
+--------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+        state={
+                value:"GlobalEdx"
+        }
+        handler=()=>
+        {
+                console.log("changed");
+        }
+        render() {
+                return (
+                        <div>
+                           <form>
+                            <h2>Controlled by React</h2>
+ <input type="text" value={this.state.value} onChange={this.handler}/>
+                            </form>
+                        </div>
+                )
+        }
+}
+
+index.js
+---------
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from "./App";
+
+//render the component to index.html
+ReactDOM.render(<App />,document.getElementById("root"));
+
+Note:
+-----
+	In above program our event will fire if we change the textfield
+	value.
+ex:
+App.js
+------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+        state={
+                value:"GlobalEdx"
+        }
+        handler=(e)=>
+        {
+                console.log(e.target.value);
+        }
+        render() {
+                return (
+                        <div>
+                           <form>
+                            <h2>Controlled by React</h2>
+ <input type="text" value={this.state.value} onChange={this.handler}/>
+                            </form>
+                        </div>
+                )
+        }
+}
+
+ex:2
+----
+App.js
+--------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+        state={
+                value:"GlobalEdx"
+        }
+        handler=(e)=>
+        {
+                console.log(e.target.value);
+                this.setState({value:e.target.value});
+        }
+        render() {
+                return (
+                        <div>
+                           <form>
+                            <h2>Controlled by React</h2>
+ <input type="text" value={this.state.value} onChange={this.handler}/>
+                            </form>
+                        </div>
+                )
+        }
+}
+Note:
+-----
+	In above program we are changing our state.
+
+To keep all the inputs in upper case we can use below code.
+ex:
+App.js
+--------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+        state={
+                value:"GlobalEdx"
+        }
+        handler=(e)=>
+        {
+                console.log(e.target.value);
+                this.setState({value:e.target.value.toUpperCase()});
+        }
+        render() {
+                return (
+                        <div>
+                           <form>
+                            <h2>Controlled by React</h2>
+ <input type="text" value={this.state.value} onChange={this.handler}/>
+                            </form>
+                        </div>
+                )
+        }
+}
+
+To accept only 10 characters as input we can use below code.
+
+ex:3
+----
+App.js
+--------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+        state={
+                value:"GlobalEdx"
+        }
+        handler=(e)=>
+        {
+                console.log(e.target.value);
+                this.setState({value:e.target.value.toUpperCase().substr(0,10)});
+        }
+        render() {
+                return (
+                        <div>
+                           <form>
+                            <h2>Controlled by React</h2>
+ <input type="text" value={this.state.value} onChange={this.handler}/>
+                            </form>
+                        </div>
+                )
+        }
+}
+
+Controlled component Textarea in ReactJS
+--------------------------------------------
+ex:
+App.js
+-----
+import React, { Component } from 'react'
+
+export default class App extends Component {
+        state={
+                value:"Hello Student, This is React Controlled component"
+        }
+        render() {
+                return (
+                        <div>
+                                <textarea value={this.state.value}></textarea>           
+                        </div>
+                )
+        }
+}
+
+index.js
+-------
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from "./App";
+
+//render the component to index.html
+ReactDOM.render(<App />,document.getElementById("root"));
+
+Note:
+-----
+	In Above program ,textarea is read only we can't edit and we can
+	see warning message also. 
+
+WE can use onChange attribute to edit the textarea.
+ex:
+App.js
+------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+        state={
+                value:"Hello Student, This is React Controlled component"
+        }
+
+        handler=(e)=>
+        {
+                this.setState({value:e.target.value})
+        }
+        render() {
+                return (
+                        <div>
+  <textarea value={this.state.value} onChange={this.handler}></textarea>           
+                        </div>
+                )
+        }
+}
+
+ex:2
+----
+App.js
+-------
+import React, { Component } from 'react'
+
+export default class App extends Component {
+        state={
+                value:"Hello Student, This is React Controlled component"
+        }
+
+        handler=(e)=>
+        {
+                this.setState({value:e.target.value.substr(0,10)})
+        }
+        render() {
+                return (
+                        <div>
+  <textarea value={this.state.value} onChange={this.handler}></textarea>           
+                        </div>
+                )
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
