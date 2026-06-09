@@ -1,0 +1,40 @@
+How to use Higher-Order Components in React ?
+
+Higher-Order Component is an advanced function, which reuses component logic in a React Component and returns an enhanced new component. It wraps commonly used processes to allow their use by different components, such as state modification or props change. Components are wrapped in HOCs, whose goal is to improve them without changing their original constructions. In React applications, they serve code reusability and abstraction purposes. To compose related components, HOCs are powerful tools.
+
+
+
+
+Reasons to use Higher-Order Components:
+Code Reusability: Higher components encapsulate to reuse the common logic here. This we do across many components to reduce code duplication.
+Abstraction of Logic: Higher Order Component often removes the repetitive tasks. Such as data fetching or authentication. This makes our code to have more code readability.
+Composability: Several behaviors or features can be combined into single components using several HOCs hence providing granular control over component behavior and allowing for the creation of sophisticated UIs.
+Approach to Create a Higher-Order Component:
+Traditional Higher-Order Components (HOCs): This method is a bit different in that you create a function which takes a component as its argument and then returns an enhanced version of that component. The HOC wraps common logic like data fetching or authentication around the wrapped component.
+Render Props: In this case, the key difference between using render props instead of HOC is that the former introduces a function prop on it so that it can share code or state with other components. Comparing to HOCs Render Props are more flexible than they have greater composability property in some cases.
+Hooks: React has introduced hooks which let users write custom reusable hooks. For some use cases, hooks offer much shorter and easier to understand inter-component communication without resorting to more common HOC styled APIs being used today.
+Higher-Order Component Structure:
+Step 1: The Higher Order Component (HOC) function is defined as a function that takes a component as its input and returns a new component imbued with additional functionality.
+
+const HigherOrderCompnent = (WrappedComponent) => {
+  // other code
+}
+Step 2: The creation of the new component involves defining a class component that wraps the WrappedComponent and introduces supplementary functionality.
+
+const NewComponent = (props) => {
+  // code
+    return (
+       // ...
+    );
+};
+Step 3: In the render() method of NewComponent, ensure the seamless passing of all props, including those added by the Higher Order Component (HOC), to the WrappedComponent.
+
+return <WrappedComponent {...props} additionalProp={additionalProp} />;
+Step 4: To complete the Higher Order Component (HOC) function, ensure it returns the NewComponent so that it can be seamlessly integrated into the application.
+
+const  HigherOrderCompnent = (WrappedComponent) => {
+     const NewComponent = (props) => {
+        // other code
+    };
+     return NewComponent;
+};
