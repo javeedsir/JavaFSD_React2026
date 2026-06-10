@@ -1,0 +1,52 @@
+
+
+1. install json server inside react project folder
+
+
+react-app>  npm install json-server
+
+
+2. start json server and give json file name
+
+react-app>  npx json-server  db.json
+
+Note: If File db.json not found error occur then creat db.json file manually with any json array or data
+
+example:
+
+inside project folder ---> db.json file
+
+db.json 
+---------
+{
+
+    "employees":[
+
+            {"id":101 , "ename":"king" , "salary":45000},
+            {"id":102 , "ename":"ford" , "salary":25000},
+            {"id":103 , "ename":"smith" , "salary":30000},
+            {"id":104 , "ename":"ravi" , "salary":15000},
+            {"id":105 , "ename":"scott" , "salary":20000}
+
+
+    ]
+
+
+
+}
+
+Then run json-server once again...
+
+
+react-app> npx json-server  db.json
+
+
+If file exist then  it will launch json-server with port no: 3000
+
+
+JSON Server started on PORT :3000
+
+Index:
+http://localhost:3000/
+
+http://localhost:3000/employees
