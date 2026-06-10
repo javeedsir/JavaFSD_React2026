@@ -1,0 +1,18 @@
+Conditional routing in React involves controlling access to specific routes or rendering different components based on certain conditions, such as user authentication status, user roles, or data availability. This is typically achieved using React Router.
+Common scenarios for conditional routing:
+Authentication Guard:
+Preventing unauthenticated users from accessing protected routes (e.g., dashboard, profile page) and redirecting them to a login page.
+Role-Based Access Control:
+Displaying different content or allowing access to specific routes based on the user's role (e.g., admin, editor, regular user).
+Data Availability:
+Showing a "loading" state or a "no data" message if data is not yet available or if a fetch operation fails.
+Implementing Conditional Routing with React Router:
+The Navigate component from react-router-dom is a primary tool for conditional routing.
+
+
+
+Explanation:
+In the example conditional routing app         
+     the /protected route checks the isAuthenticated variable.
+If isAuthenticated is true, the Protected Page component is rendered.
+If isAuthenticated is false, the Navigate component redirects the user to the /login route. The replace prop ensures that the login page replaces the current entry in the history stack, preventing the user from navigating back to the protected route directly after being redirected.

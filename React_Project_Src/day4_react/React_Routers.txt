@@ -1,0 +1,530 @@
+React Router 
+============
+React router is a standard library system built on top of react to perform routing in react application using react router library.
+
+A routing is a process in which a user is redirected to other pages based on the inputs and actions.
+
+React router is mainly used to create single page application (SPA).
+
+React router is used to defined several routes in react application.
+
+When user enters url in browser address bar and if that path matches to any route in routing file then the request will forward to that particular route.
+
+There are three packages to use react router.
+
+1) react-router 
+---------------
+	It provides core components and functions to perform react routing.
+
+2) react-router-native 
+------------------
+	It is used for mobile development.
+
+3) react-router-dom 
+--------------------
+	It is used for web development.
+
+There are two components of react router.
+
+1) <BrowserRouter>
+----------------
+	It is used to handle dynamic URL's.
+
+2) <HashRouter>
+----------------#
+	It is used to handle static URL's.
+
+
+Project Structure 
+-----------------
+myapp19
+|
+|-----node_modules
+|
+|-----public
+	|
+	|---main.html
+	|---manifest.json 
+	|---favicon.ico 
+
+|-----src
+	|
+	|---index.js 
+	|---App.js (Routing File)
+	|---Home.js 
+	|---About.js
+	|---Service.js
+	|---Error.js
+
+|-----package.json
+|-----README.md 
+
+step1:
+------
+	Create a react project i.e myapp19.
+	ex:
+		npx create-react-app maypp19
+
+step2:
+-----
+	Switch to the project.
+	ex:
+		cd myapp19
+
+step3:
+------
+	Install react router package.
+	ex:
+		npm install react-router-dom 
+
+
+step4:
+------
+	Run react project.
+	ex:
+		npm start 
+
+step5:
+------
+	Test the application by using below request url.
+	ex:
+		http://localhost:3000
+
+step6:
+-----
+	Create Home.js file inside "src" folder.
+Home.js 
+--------
+import React from 'react'
+
+function Home() {
+  return (
+    <div>
+      <h1 style={{textAlign:"center"}}>Home Page </h1>
+    </div>
+  )
+}
+
+export default Home
+
+
+
+step7:
+------
+	Create About.js file inside "src" folder.
+About.js
+--------
+import React from 'react'
+
+function About() {
+  return (
+    <div>
+      <h1 style={{textAlign:"center"}}>About Page </h1>
+    </div>
+  )
+}
+
+export default About
+
+	
+
+step8:
+------
+	Create Service.js file inside "src" folder.
+Service.js
+-----------
+import React from 'react'
+
+function Service() {
+  return (
+    <div>
+      <h1 style={{textAlign:"center"}}>Service Page </h1>
+    </div>
+  )
+}
+
+export default Service
+
+
+
+step9:
+-----
+	Create Error.js file inside "src" folder.
+Error.js
+--------
+import React from 'react'
+
+function Error() {
+  return (
+    <div>
+      <h1 style={{textAlign:"center"}}>404! Error Page </h1>
+    </div>
+  )
+}
+
+export default Error
+
+
+
+step10:
+------
+	Goto App.js and write below code.
+
+App.js 
+------
+import {BrowserRouter,Route,Routes,route} from 'react-router-dom';
+import Home from './Home';
+import About from './About';
+import Service from './Service';
+import Error from './Error';
+
+function App()
+{
+  return(
+    <>
+        <BrowserRouter>
+            <Routes>
+                <Route exact path='/' element={<Home/>}></Route>
+                <Route path='/about' element={<About/>}></Route>
+                <Route path='/service' element={<Service/>}></Route>
+                <Route path='*' element={<Error/>}></Route>
+            </Routes>
+        </BrowserRouter>
+    </>
+  )
+}
+export default App;
+
+step11:
+------
+	Test the application by using below request url.
+	ex:
+		http://localhost:3000/
+		http://localhost:3000/about
+		http://localhost:3000/service
+		http://localhost:3000/gallery  
+
+step12:
+------
+	Import <Link> element inside routing file i.e App.js.
+
+App.js 
+--------
+import {BrowserRouter,Route,Routes,Link} from 'react-router-dom';
+import Home from './Home';
+import About from './About';
+import Service from './Service';
+import Error from './Error';
+
+function App()
+{
+  return(
+    <>
+        <BrowserRouter>
+            <center>
+            <Link style={{margin:"0px 50px"}} to="/"> Home </Link>    
+            <Link style={{margin:"0px 50px"}} to="/about"> About </Link>    
+            <Link style={{margin:"0px 50px"}} to="/service"> Service </Link> 
+            </center>
+            <hr/>           
+
+            <Routes>
+                <Route exact path='/' element={<Home/>}></Route>
+                <Route path='/about' element={<About/>}></Route>
+                <Route path='/service' element={<Service/>}></Route>
+                <Route path='*' element={<Error/>}></Route>
+            </Routes>
+        </BrowserRouter>
+    </>
+  )
+}
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Bootstrap in React 
+===================
+Single page application gained lot of popularity in few years and many frontend frameworks introduced single page application i.e AnglarJS, VueJS and etc.
+
+React becomes most popular javascript library and bootstrap becomes most popular CSS framework.
+
+To use bootstrap in react we need to download bootstrap package as given below.
+ex:
+	npm install bootstrap
+
+To use bootstrap in react application we need to import inside index.js file.
+
+
+Project Structure 
+-----------------
+myapp20
+|
+|-----node_modules
+|
+|-----public
+	|
+	|---main.html
+	|---manifest.json 
+	|---favicon.ico 
+
+|-----src
+	|
+	|---index.js 
+	|---App.js (Routing File)
+	|---Home.js 
+	|---About.js
+	|---Service.js
+	|---Error.js
+
+|-----package.json
+|-----README.md 
+
+step1:
+------
+	Create a react project i.e myapp20.
+	ex:
+		npx create-react-app maypp20
+
+step2:
+-----
+	Switch to the project.
+	ex:
+		cd myapp20
+
+step3:
+------
+	Install bootstrap package.
+	ex:
+		npm install bootstrap
+
+
+step4:
+------
+	Run react project.
+	ex:
+		npm start 
+
+step5:
+------
+	Test the application by using below request url.
+	ex:
+		http://localhost:3000
+
+step6:
+-----
+	Goto index.js file and import bootstrap.
+
+index.js 
+---------
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+
+step7:
+------
+	Goto App.js file and write below code.
+
+App.js 
+------
+import React from 'react'
+
+function App() {
+  return (
+    <div className='container mt-5'>
+        <button className='btn btn-primary'> clickme </button>
+    </div>
+  )
+}
+
+export default App
+
+
+Vite (veet)
+===========
+It is a rapid development tool for modern web applications.
+
+It focus on speed and performance in development experience.
+
+steps to develop react application using vite 
+----------------------------------------------
+step1:
+-----
+	Create a vite project.
+	ex:
+		npm create vite@latest
+
+step2:
+-----
+	Switch to the project.
+	ex:
+		cd reactvite
+
+step3:
+------
+	Install npm.
+	ex:
+		npm install
+
+step4
+------
+	Run the project.
+	ex:
+		npm run dev
+
+step5:
+-----
+	Test the application.
+	ex:
+		 http://localhost:5173/	
+
+step6:
+------
+	Goto App.js file and write custom logic.
+
+App.js 
+------
+import React from 'react'
+
+function App() {
+  return (
+    <div>
+        <h1> Welcome to React + Vite Project </h1>
+        <h1> Welcome to React + Vite Project </h1>
+        <h1> Welcome to React + Vite Project </h1>
+    </div>
+  )
+}
+
+export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
