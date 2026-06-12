@@ -1,0 +1,64 @@
+
+
+Final Project :
+
+1. all required packages
+2. Naming convections
+3. Layered ARchitecture , REST MVC Architecture
+4. RestControllers
+5. Service interfaces and Implementation classes
+6. Repositories interfaces
+7. Entities classes along with mappings
+8. DTO classes for every entity class
+9. Apply Validations on DTO Class fields/properties
+10. Logging messages to the file
+11. GlobalException Handling along with CustomExceptions 
+12. Lombok , Swagger-UI / Postman
+13. All Best practices from java
+
+
+Project  Steps:
+Backend project
+1. Create spring boot and all required dependency 
+2. Entity classes (mappings) and DTO classes
+3. Repositories for each entity.
+4. Service Interfaces and Implementation classes.
+5. Complete input validations using annotations or custom logics
+6. Create RestController and GlobalException Handler to handle exception
+7. add JWT in project
+
+Front end project
+Design UI using ReactJS , Bootstrap , CSS
+1. Analyse and create components
+2. Create dashboard and implements Routings for all components
+3. Implement logics in each components
+4. Create service module with service classes
+
+
+
+
+
+
+
+
+
+
+
+interface IUserService{
+
+
+public  User   addUser(UserDTO dto);
+
+public  User findUserById(int id) throws UserNotFoundException;
+
+}
+
+
+
+
+
+
+
+
+
+
